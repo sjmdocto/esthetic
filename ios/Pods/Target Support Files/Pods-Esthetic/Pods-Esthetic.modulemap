@@ -1,0 +1,6 @@
+module Pods_Esthetic {
+  umbrella header "Pods-Esthetic-umbrella.h"
+
+  export *
+  module * { export * }
+}
