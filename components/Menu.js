@@ -6,6 +6,7 @@ import {
     TouchableWithoutFeedback, 
     StatusBar,
     StyleSheet,
+    TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather'; 
 
@@ -45,9 +46,12 @@ const Menu = props => {
                                 <Text style = {styles.categoriesText}>Clothing</Text>
                             </View>
                         </View>
-                        <View style = {styles.doneContainer}>
-                            <Text style = {styles.doneButton}>Done</Text>
-                        </View>
+                        <TouchableOpacity onPress = {props.onClose}>
+                            <View style = {styles.doneContainer}>
+                                <Text style = {styles.doneButton}>Done</Text>
+                            </View>
+                        </TouchableOpacity>
+
                     </View>
                 </View>
                 <TouchableWithoutFeedback onPress = {props.onClose}>
