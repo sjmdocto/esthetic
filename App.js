@@ -17,6 +17,8 @@ import {MenuProvider} from 'react-native-popup-menu';
 const EST_ORANGE = 'rgb(227, 131, 4)';
 const EST_ORANGE_TRANSP = 'rgba(227, 131, 4, 0.92)';
 
+// To-do: android phones w/notches need paddingTop
+
 const App = () => {
   const [menuVisible, setMenuVisible] = useState(false);
   const openMenuHandler = () => {
@@ -35,7 +37,9 @@ const App = () => {
               statusBarTranslucent = {true}>
             <View style = {styles.menuScreen}>
               <View style = {styles.menuArea}>
-                <Text style = {{textAlign: 'center', top: '10%'}}>Filter</Text>
+                <View style = {styles.menuHeader}>
+                  <Text style = {styles.filtersTitle}>Filters</Text>
+                </View>
               </View>
               <TouchableWithoutFeedback onPress = {closeMenuHandler}>
                 <View style = {styles.nonMenuArea}>
@@ -65,12 +69,20 @@ const styles = StyleSheet.create({
   menuArea: {
     backgroundColor: EST_ORANGE_TRANSP,
     flex: 9,
-    //right: '33%',
-    //opacity: 99,
-    //paddingTop: 50,
+  },
+  menuHeader: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'white',
+    height: '8%', 
+  },
+  filtersTitle: {
+    color: 'white',
+    paddingTop: '3%',
+    paddingLeft: '5%',
+    fontWeight: 'bold',
+    fontSize: 30,
   },
   nonMenuArea: {
-    //backgroundColor: 'red',
     flex: 4,
   },
 });
