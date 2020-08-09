@@ -9,9 +9,17 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather'; 
+import OptionText from './OptionText';
 
 const EST_ORANGE = 'rgb(227, 131, 4)';
 const EST_ORANGE_TRANSP = 'rgba(227, 131, 4, 0.92)';
+
+const filterColors = {
+    red: 'red',
+    green: 'green',
+};
+
+// To-do: resize vertical layout of things depending on whether phone has notch
 
 const Menu = props => {
     return (
@@ -19,6 +27,7 @@ const Menu = props => {
             visible = {props.visible} 
             transparent = {true} 
             statusBarTranslucent = {true}
+            animationType = {'fade'}
         >
             <View style = {styles.menuScreen}>
                 <View style = {styles.menuArea}>
@@ -35,6 +44,18 @@ const Menu = props => {
                                 />
                                 <Text style = {styles.categoriesText}>Colors</Text>
                             </View>
+                            <View style = {styles.optionsContainer}>
+                                <OptionText>Black</OptionText>
+                                <OptionText>White</OptionText>
+                                <OptionText>Grey</OptionText>
+                                <OptionText>Red</OptionText>
+                                <OptionText>Orange</OptionText>
+                                <OptionText>Yellow</OptionText>
+                                <OptionText>Green</OptionText>
+                                <OptionText>Blue</OptionText>
+                                <OptionText>Purple</OptionText>
+                                <OptionText>Multicolored</OptionText>
+                            </View>
                         </View>
                         <View style = {styles.clothingContainer}>
                             <View style = {styles.categoriesHeader}>
@@ -44,6 +65,18 @@ const Menu = props => {
                                     color = {'white'}
                                 />
                                 <Text style = {styles.categoriesText}>Clothing</Text>
+                            </View>
+                            <View style = {styles.optionsContainer}>
+                                <OptionText>Outerwear</OptionText>
+                                <OptionText>Formal Wear</OptionText>
+                                <OptionText>Sweaters</OptionText>
+                                <OptionText>Hoodies</OptionText>
+                                <OptionText>Button Ups</OptionText>
+                                <OptionText>Tees</OptionText>
+                                <OptionText>Pants</OptionText>
+                                <OptionText>Shorts</OptionText>
+                                <OptionText>Activewear</OptionText>
+                                <OptionText>Shoes</OptionText>
                             </View>
                         </View>
                         <View style = {styles.doneContainer}>
@@ -105,6 +138,11 @@ const styles = StyleSheet.create({
         flexGrow: 1,
         //flex: 1,
     },
+    optionsContainer: {
+        flexGrow: 1,
+        justifyContent: 'space-evenly',
+        paddingLeft: '20%',
+    },
     categoriesText: {
         paddingLeft: 5,
         color: 'white',
@@ -115,10 +153,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
-        //paddingHorizontal: 30,
     },
     doneButton: {
-        borderWidth: 1,
+        //borderWidth: 1,
         width: 50,
         alignItems: 'center',
     },
