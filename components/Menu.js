@@ -46,11 +46,11 @@ const Menu = props => {
                                 <Text style = {styles.categoriesText}>Clothing</Text>
                             </View>
                         </View>
-                        <TouchableOpacity onPress = {props.onClose}>
-                            <View style = {styles.doneContainer}>
-                                <Text style = {styles.doneButton}>Done</Text>
-                            </View>
-                        </TouchableOpacity>
+                        <View style = {styles.doneContainer}>
+                            <TouchableOpacity onPress = {props.onClose} style = {styles.doneButton}>
+                                <Text style = {styles.doneText}>Done</Text>
+                            </TouchableOpacity>
+                        </View>
 
                     </View>
                 </View>
@@ -112,9 +112,17 @@ const styles = StyleSheet.create({
     },
     doneContainer: {
         paddingBottom: '5%',
+        justifyContent: 'center',
         alignItems: 'center',
+        flexDirection: 'row',
+        //paddingHorizontal: 30,
     },
     doneButton: {
+        borderWidth: 1,
+        width: 50,
+        alignItems: 'center',
+    },
+    doneText: {
         fontSize: 16,
         fontWeight: 'bold',
         color: 'white',
