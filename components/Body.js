@@ -41,8 +41,6 @@ const Body = () => {
     return (
         <View style = {styles.container}>
             <FlatList
-                //style = {styles.list}
-                //contentContainerStyle = {styles.grid}
                 numColumns = {3}
                 data = {clothingItems}
                 renderItem = {({item}) => (
