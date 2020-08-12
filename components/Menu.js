@@ -32,16 +32,44 @@ const colorKey = {
   purple: 9,
   multicolored: 10,
 };
+// Add dresses, and other types we're missing?
+const clothingKey = {
+  none: 0,
+  outerwear: 1,
+  formalwear: 2,
+  sweaters: 3,
+  hoodies: 4,
+  buttonUps: 5,
+  tees: 6,
+  pants: 7,
+  shorts: 8,
+  activeWear: 9,
+  shoes: 10,
+};
 
 const Menu = (props) => {
+  // Color filter stuff
   const [selectedColor, setselectedColor] = useState(0);
   const changeSelectedColor = (color) => {
     console.log('changeSelectedColor input:' + color);
     setselectedColor(color);
   };
+
   useEffect(() => {
     console.log('selectedColor is now:' + selectedColor);
   }, [selectedColor]);
+
+  // Clothing type filter stuff
+  const [selectedClothing, setSelectedClothing] = useState(0);
+  const changeSelectedClothing = (clothing) => {
+    console.log('changeSelectedClothing input:' + clothing);
+    setSelectedClothing(clothing);
+  };
+
+  useEffect(() => {
+    console.log('selectedClothing is now:' + selectedClothing);
+  }, [selectedClothing]);
+
   return (
     <Modal
       visible={props.visible}
@@ -62,70 +90,70 @@ const Menu = (props) => {
               <View style={styles.optionsContainer}>
                 <OptionText
                   selection={colorKey.black}
-                  selectedOption={selectedColor}
+                  filterSelection={selectedColor}
                   noneKey={colorKey.none}
                   onSelect={changeSelectedColor}>
                   Black
                 </OptionText>
                 <OptionText
                   selection={colorKey.white}
-                  selectedOption={selectedColor}
+                  filterSelection={selectedColor}
                   noneKey={colorKey.none}
                   onSelect={changeSelectedColor}>
                   White
                 </OptionText>
                 <OptionText
                   selection={colorKey.grey}
-                  selectedOption={selectedColor}
+                  filterSelection={selectedColor}
                   noneKey={colorKey.none}
                   onSelect={changeSelectedColor}>
                   Grey
                 </OptionText>
                 <OptionText
                   selection={colorKey.red}
-                  selectedOption={selectedColor}
+                  filterSelection={selectedColor}
                   noneKey={colorKey.none}
                   onSelect={changeSelectedColor}>
                   Red
                 </OptionText>
                 <OptionText
                   selection={colorKey.orange}
-                  selectedOption={selectedColor}
+                  filterSelection={selectedColor}
                   noneKey={colorKey.none}
                   onSelect={changeSelectedColor}>
                   Orange
                 </OptionText>
                 <OptionText
                   selection={colorKey.yellow}
-                  selectedOption={selectedColor}
+                  filterSelection={selectedColor}
                   noneKey={colorKey.none}
                   onSelect={changeSelectedColor}>
                   Yellow
                 </OptionText>
                 <OptionText
                   selection={colorKey.green}
-                  selectedOption={selectedColor}
+                  filterSelection={selectedColor}
                   noneKey={colorKey.none}
                   onSelect={changeSelectedColor}>
                   Green
                 </OptionText>
                 <OptionText
                   selection={colorKey.blue}
-                  selectedOption={selectedColor}
+                  filterSelection={selectedColor}
                   noneKey={colorKey.none}
                   onSelect={changeSelectedColor}>
                   Blue
                 </OptionText>
                 <OptionText
                   selection={colorKey.purple}
-                  selectedOption={selectedColor}
+                  filterSelection={selectedColor}
                   noneKey={colorKey.none}
                   onSelect={changeSelectedColor}>
                   Purple
                 </OptionText>
                 <OptionText
                   selection={colorKey.multicolored}
-                  selectedOption={selectedColor}
+                  filterSelection={selectedColor}
                   noneKey={colorKey.none}
                   onSelect={changeSelectedColor}>
                   Multicolored
@@ -138,16 +166,76 @@ const Menu = (props) => {
                 <Text style={styles.categoriesText}>Clothing</Text>
               </View>
               <View style={styles.optionsContainer}>
-                <OptionText>Outerwear</OptionText>
-                <OptionText>Formal Wear</OptionText>
-                <OptionText>Sweaters</OptionText>
-                <OptionText>Hoodies</OptionText>
-                <OptionText>Button Ups</OptionText>
-                <OptionText>Tees</OptionText>
-                <OptionText>Pants</OptionText>
-                <OptionText>Shorts</OptionText>
-                <OptionText>Activewear</OptionText>
-                <OptionText>Shoes</OptionText>
+                <OptionText
+                  selection={clothingKey.outerwear}
+                  filterSelection={selectedClothing}
+                  noneKey={clothingKey.none}
+                  onSelect={changeSelectedClothing}>
+                  Outerwear
+                </OptionText>
+                <OptionText
+                  selection={clothingKey.formalwear}
+                  filterSelection={selectedClothing}
+                  noneKey={clothingKey.none}
+                  onSelect={changeSelectedClothing}>
+                  Formal Wear
+                </OptionText>
+                <OptionText
+                  selection={clothingKey.sweaters}
+                  filterSelection={selectedClothing}
+                  noneKey={clothingKey.none}
+                  onSelect={changeSelectedClothing}>
+                  Sweaters
+                </OptionText>
+                <OptionText
+                  selection={clothingKey.hoodies}
+                  filterSelection={selectedClothing}
+                  noneKey={clothingKey.none}
+                  onSelect={changeSelectedClothing}>
+                  Hoodies
+                </OptionText>
+                <OptionText
+                  selection={clothingKey.buttonUps}
+                  filterSelection={selectedClothing}
+                  noneKey={clothingKey.none}
+                  onSelect={changeSelectedClothing}>
+                  Button Ups
+                </OptionText>
+                <OptionText
+                  selection={clothingKey.tees}
+                  filterSelection={selectedClothing}
+                  noneKey={clothingKey.none}
+                  onSelect={changeSelectedClothing}>
+                  Tees
+                </OptionText>
+                <OptionText
+                  selection={clothingKey.pants}
+                  filterSelection={selectedClothing}
+                  noneKey={clothingKey.none}
+                  onSelect={changeSelectedClothing}>
+                  Pants
+                </OptionText>
+                <OptionText
+                  selection={clothingKey.shorts}
+                  filterSelection={selectedClothing}
+                  noneKey={clothingKey.none}
+                  onSelect={changeSelectedClothing}>
+                  Shorts
+                </OptionText>
+                <OptionText
+                  selection={clothingKey.activeWear}
+                  filterSelection={selectedClothing}
+                  noneKey={clothingKey.none}
+                  onSelect={changeSelectedClothing}>
+                  Activewear
+                </OptionText>
+                <OptionText
+                  selection={clothingKey.shoes}
+                  filterSelection={selectedClothing}
+                  noneKey={clothingKey.none}
+                  onSelect={changeSelectedClothing}>
+                  Shoes
+                </OptionText>
               </View>
             </View>
             <View style={styles.doneContainer}>
@@ -200,14 +288,12 @@ const styles = StyleSheet.create({
   },
   colorsContainer: {
     flexGrow: 1,
-    //flex: 1,
   },
   categoriesHeader: {
     flexDirection: 'row',
   },
   clothingContainer: {
     flexGrow: 1,
-    //flex: 1,
   },
   optionsContainer: {
     flexGrow: 1,
