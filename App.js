@@ -25,15 +25,6 @@ const App = () => {
   const closeMenuHandler = () => {
     setMenuVisible(false);
   };
-  /* NOT USED YET
-  const [filterColor, setFilterColor] = useState('none');
-  const chooseFilterColorHandler = color => {
-    // To-do: make sure input color is actual color first
-    setFilterColor(color);
-
-  };
-  */
-
   return (
     <MenuProvider>
       <SafeAreaView style={styles.main}>

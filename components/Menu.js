@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   Modal,
   View,
@@ -16,8 +16,32 @@ import OptionText from './OptionText';
 const EST_ORANGE_TRANSP = 'rgba(227, 131, 4, 0.92)';
 
 // To-do: resize vertical layout of things depending on whether phone has notch
+// To-do: try to consolidate clothingContainer and colorsContainer to one style
+//        bc they might have the same style properties
+// To-do: Consider removing noneKey prop for OptionText since it will always be 0
+const colorKey = {
+  none: 0,
+  black: 1,
+  white: 2,
+  grey: 3,
+  red: 4,
+  orange: 5,
+  yellow: 6,
+  green: 7,
+  blue: 8,
+  purple: 9,
+  multicolored: 10,
+};
 
 const Menu = (props) => {
+  const [selectedColor, setselectedColor] = useState(0);
+  const changeSelectedColor = (color) => {
+    console.log('changeSelectedColor input:' + color);
+    setselectedColor(color);
+  };
+  useEffect(() => {
+    console.log('selectedColor is now:' + selectedColor);
+  }, [selectedColor]);
   return (
     <Modal
       visible={props.visible}
@@ -32,25 +56,85 @@ const Menu = (props) => {
           <View style={styles.menuBody}>
             <View style={styles.colorsContainer}>
               <View style={styles.categoriesHeader}>
-                <Icon name="triangle" size={18} color={'white'} />
+                <Icon name="circle" size={18} color={'white'} />
                 <Text style={styles.categoriesText}>Colors</Text>
               </View>
               <View style={styles.optionsContainer}>
-                <OptionText>Black</OptionText>
-                <OptionText>White</OptionText>
-                <OptionText>Grey</OptionText>
-                <OptionText>Red</OptionText>
-                <OptionText>Orange</OptionText>
-                <OptionText>Yellow</OptionText>
-                <OptionText>Green</OptionText>
-                <OptionText>Blue</OptionText>
-                <OptionText>Purple</OptionText>
-                <OptionText>Multicolored</OptionText>
+                <OptionText
+                  selection={colorKey.black}
+                  selectedOption={selectedColor}
+                  noneKey={colorKey.none}
+                  onSelect={changeSelectedColor}>
+                  Black
+                </OptionText>
+                <OptionText
+                  selection={colorKey.white}
+                  selectedOption={selectedColor}
+                  noneKey={colorKey.none}
+                  onSelect={changeSelectedColor}>
+                  White
+                </OptionText>
+                <OptionText
+                  selection={colorKey.grey}
+                  selectedOption={selectedColor}
+                  noneKey={colorKey.none}
+                  onSelect={changeSelectedColor}>
+                  Grey
+                </OptionText>
+                <OptionText
+                  selection={colorKey.red}
+                  selectedOption={selectedColor}
+                  noneKey={colorKey.none}
+                  onSelect={changeSelectedColor}>
+                  Red
+                </OptionText>
+                <OptionText
+                  selection={colorKey.orange}
+                  selectedOption={selectedColor}
+                  noneKey={colorKey.none}
+                  onSelect={changeSelectedColor}>
+                  Orange
+                </OptionText>
+                <OptionText
+                  selection={colorKey.yellow}
+                  selectedOption={selectedColor}
+                  noneKey={colorKey.none}
+                  onSelect={changeSelectedColor}>
+                  Yellow
+                </OptionText>
+                <OptionText
+                  selection={colorKey.green}
+                  selectedOption={selectedColor}
+                  noneKey={colorKey.none}
+                  onSelect={changeSelectedColor}>
+                  Green
+                </OptionText>
+                <OptionText
+                  selection={colorKey.blue}
+                  selectedOption={selectedColor}
+                  noneKey={colorKey.none}
+                  onSelect={changeSelectedColor}>
+                  Blue
+                </OptionText>
+                <OptionText
+                  selection={colorKey.purple}
+                  selectedOption={selectedColor}
+                  noneKey={colorKey.none}
+                  onSelect={changeSelectedColor}>
+                  Purple
+                </OptionText>
+                <OptionText
+                  selection={colorKey.multicolored}
+                  selectedOption={selectedColor}
+                  noneKey={colorKey.none}
+                  onSelect={changeSelectedColor}>
+                  Multicolored
+                </OptionText>
               </View>
             </View>
             <View style={styles.clothingContainer}>
               <View style={styles.categoriesHeader}>
-                <Icon name="triangle" size={18} color={'white'} />
+                <Icon name="circle" size={18} color={'white'} />
                 <Text style={styles.categoriesText}>Clothing</Text>
               </View>
               <View style={styles.optionsContainer}>

@@ -11,7 +11,7 @@ import {
 // TO-DO: Create Filter menu
 
 const EST_ORANGE = 'rgb(227, 131, 4)';
-const EST_ORANGE_TRANSP = 'rgba(227, 131, 4, 0.8)';
+// const EST_ORANGE_TRANSP = 'rgba(227, 131, 4, 0.8)';
 const HEADER_BUTTON_SIZE = 35;
 
 const Header = (props) => {
