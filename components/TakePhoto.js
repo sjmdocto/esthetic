@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {SafeAreaView, View, Modal, Text, StyleSheet, TouchableOpacity, Dimensions} from 'react-native';
 import {RNCamera} from 'react-native-camera';
 import Icon from 'react-native-vector-icons/Feather';
+import SavePhoto from './SavePhoto';
 
 const SCREENWIDTH = Dimensions.get('window').width;
 
@@ -15,9 +16,15 @@ const TakePhoto = (props) => {
       console.log(data.uri);
     }
   };
+  const [saveVisible, setSaveVisible] = useState(false);
+  const shutterHandler = () => {
+    takePicture();
+    setSaveVisible(true);
+  };
   return (
     <Modal visible={props.visible}>
       <View style={styles.container}>
+        <SavePhoto saveVisibility={saveVisible}/>
         <SafeAreaView style={styles.topContainer}>
           <Text style={styles.title}>Add New Clothes</Text>
         </SafeAreaView>
@@ -45,7 +52,7 @@ const TakePhoto = (props) => {
               name="aperture"
               size={35}
               color={'white'}
-              onPress={takePicture.bind(this)}
+              onPress={shutterHandler}
             />
           </View>
         </View>
