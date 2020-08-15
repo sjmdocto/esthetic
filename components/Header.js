@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     borderBottomColor: 'black',
     height: '7%',
     flex: 0,
-    backgroundColor: '#F2F2F2',
+    backgroundColor: '#E5E5E5',
   },
   menuButton: {
     left: -110,

@@ -24,7 +24,7 @@ const TakePhoto = (props) => {
   return (
     <Modal visible={props.visible}>
       <View style={styles.container}>
-        <SavePhoto saveVisibility={saveVisible}/>
+        <SavePhoto saveVisibility={saveVisible} />
         <SafeAreaView style={styles.topContainer}>
           <Text style={styles.title}>Add New Clothes</Text>
         </SafeAreaView>
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F2F2F2',
+    backgroundColor: '#E5E5E5',
     // borderWidth: 1,
     // borderColor: 'blue',
   },
