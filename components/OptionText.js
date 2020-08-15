@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Text, StyleSheet, TouchableOpacity, View} from 'react-native';
 
-/** function OptionText
+/** OptionText.js
  * inputs: selection, filterSelection, noneKey, onSelect()
  * output: <TouchableOpacity> object
  *
@@ -12,7 +12,7 @@ import {Text, StyleSheet, TouchableOpacity, View} from 'react-native';
  * INVARIANT:
  * Only one OptionText object can be selected at a time per filter type.
  * e.g. only one color can be selected at a time.
- * **/
+ **/
 
 const OptionText = (props) => {
   const [textColor, setTextColor] = useState('white');
@@ -34,14 +34,12 @@ const OptionText = (props) => {
     console.log('selectionHandler filterSelection:' + filterSelection);
     if (filterSelection === noneKey || selection !== filterSelection) {
       props.onSelect(selection);
-      console.log('menu filterSelection:' + props.filterSelection);
     }
     // if selection === to filterSelection,
     // or if some other scenario somehow comes up,
     // set filterSelection to 'none'
     else {
       props.onSelect(noneKey);
-      console.log('menu filterSelection:' + props.filterSelection);
     }
   };
   return (

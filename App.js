@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Body from './components/Body';
 import Menu from './components/Menu';
 import {MenuProvider} from 'react-native-popup-menu';
+import TakePhoto from './components/TakePhoto';
 
 // **Was gonna use for filter color selection, now
 // need to figure out how to delete from project**
@@ -18,6 +19,7 @@ import {MenuProvider} from 'react-native-popup-menu';
 // To-do: android phones w/notches need paddingTop
 
 const App = () => {
+  // Filter menu stuff
   const [menuVisible, setMenuVisible] = useState(false);
   const openMenuHandler = () => {
     setMenuVisible(true);
@@ -25,12 +27,25 @@ const App = () => {
   const closeMenuHandler = () => {
     setMenuVisible(false);
   };
+  // Camera stuff
+  const [cameraOpen, setCameraOpen] = useState(false);
+  const openCamera = () => {
+    setCameraOpen(true);
+  };
+  const closeCamera = () => {
+    setCameraOpen(false);
+  };
   return (
     <MenuProvider>
       <SafeAreaView style={styles.main}>
         <Menu visible={menuVisible} onClose={closeMenuHandler} />
-        <Header onPressMenu={openMenuHandler} />
+        <Header onPressMenu={openMenuHandler} onTakePhoto={openCamera} />
         <Body />
+        <TakePhoto
+          visible={cameraOpen}
+          onOpen={openCamera}
+          onClose={closeCamera}
+        />
       </SafeAreaView>
     </MenuProvider>
   );

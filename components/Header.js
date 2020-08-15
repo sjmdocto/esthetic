@@ -33,7 +33,11 @@ const Header = (props) => {
           <Icon name="plus" size={HEADER_BUTTON_SIZE} color={EST_ORANGE} />
         </MenuTrigger>
         <MenuOptions customStyles={optionsStyles}>
-          <MenuOption value={1} text="Take photo" />
+          <MenuOption
+            value={1}
+            onSelect={props.onTakePhoto}
+            text="Take photo"
+          />
           <MenuOption value={2} text="Import..." />
         </MenuOptions>
       </Menu>
