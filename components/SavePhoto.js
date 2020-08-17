@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, Text, Modal, StyleSheet, Dimensions} from 'react-native';
+import {View, Text, Modal, StyleSheet, Dimensions, TouchableOpacity} from 'react-native';
 
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 
 const EST_ORANGE = 'rgb(227, 131, 4)';
+// To-do: blur TakePhoto screen when this screen pops up
 
 const SavePhoto = (props) => {
   return (
@@ -23,9 +24,13 @@ const SavePhoto = (props) => {
           </View>
         </View>
         <View style={styles.buttonsContainer}>
-          <View style={styles.discardButton}>
-            <Text style={styles.buttonText}>Discard</Text>
-          </View>
+          <TouchableOpacity
+            onPress={props.onDiscard}
+            style={styles.discardButton}>
+            <View>
+              <Text style={styles.buttonText}>Discard</Text>
+            </View>
+          </TouchableOpacity>
           <View style={styles.saveButton}>
             <Text style={styles.buttonText}>Save</Text>
           </View>

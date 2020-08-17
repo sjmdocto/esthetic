@@ -21,10 +21,16 @@ const TakePhoto = (props) => {
     takePicture();
     setSaveVisible(true);
   };
+  const discardHandler = () => {
+    // "refresh" camera screen,
+
+    // then hide save menu
+    setSaveVisible(false);
+  };
   return (
     <Modal visible={props.visible}>
       <View style={styles.container}>
-        <SavePhoto saveVisibility={saveVisible} />
+        <SavePhoto saveVisibility={saveVisible} onDiscard={discardHandler} />
         <SafeAreaView style={styles.topContainer}>
           <Text style={styles.title}>Add New Clothes</Text>
         </SafeAreaView>
