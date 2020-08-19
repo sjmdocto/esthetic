@@ -1,41 +1,64 @@
-import React from 'react';
-import {View, Text, Modal, StyleSheet, Dimensions, TouchableOpacity} from 'react-native';
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  Modal,
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity,
+  TouchableHighlight,
+} from 'react-native';
+import {
+  Menu,
+  MenuOptions,
+  MenuOption,
+  MenuProvider,
+  MenuTrigger,
+} from 'react-native-popup-menu';
+import Icon from 'react-native-vector-icons/Feather';
+import ColorTagMenu from './ColorTagMenu';
+import ClothingTagMenu from './ClothingTagMenu';
 
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 
 const EST_ORANGE = 'rgb(227, 131, 4)';
+
 // To-do: blur TakePhoto screen when this screen pops up
 
 const SavePhoto = (props) => {
   return (
     <Modal visible={props.saveVisibility} transparent={true}>
-      <View style={styles.container}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.titleText}>Select Tags</Text>
-        </View>
-        <View style={styles.body}>
-          <View style={styles.imageContainer}>
-            <Text>Photo</Text>
+      <MenuProvider skipInstanceCheck={true}>
+        <View style={styles.container}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.titleText}>Select Tags</Text>
           </View>
-          <View style={styles.tagsContainer}>
-            <Text style={styles.tagsText}>Color:</Text>
-            <Text style={styles.tagsText}>Type:</Text>
-          </View>
-        </View>
-        <View style={styles.buttonsContainer}>
-          <TouchableOpacity
-            onPress={props.onDiscard}
-            style={styles.discardButton}>
-            <View>
-              <Text style={styles.buttonText}>Discard</Text>
+          <View style={styles.body}>
+            <View style={styles.imageContainer}>
+              <Text>Photo</Text>
             </View>
-          </TouchableOpacity>
-          <View style={styles.saveButton}>
-            <Text style={styles.buttonText}>Save</Text>
+            <View style={styles.tagsContainer}>
+              <Text style={styles.tagsText}>Color:</Text>
+              <ColorTagMenu />
+              <Text style={styles.tagsText}>Type:</Text>
+              <ClothingTagMenu />
+            </View>
+          </View>
+          <View style={styles.buttonsContainer}>
+            <TouchableOpacity
+              onPress={props.onDiscard}
+              style={styles.discardButton}>
+              <View>
+                <Text style={styles.buttonText}>Discard</Text>
+              </View>
+            </TouchableOpacity>
+            <View style={styles.saveButton}>
+              <Text style={styles.buttonText}>Save</Text>
+            </View>
           </View>
         </View>
-      </View>
+      </MenuProvider>
     </Modal>
   );
 };
@@ -61,9 +84,9 @@ const styles = StyleSheet.create({
   body: {
     flex: 3,
     flexDirection: 'row',
-    borderWidth: 1,
-    borderColor: 'yellow',
     paddingHorizontal: 10,
+    // borderWidth: 1,
+    // borderColor: 'yellow',
   },
   imageContainer: {
     flex: 45,
@@ -88,8 +111,8 @@ const styles = StyleSheet.create({
   tagsContainer: {
     flex: 55,
     justifyContent: 'space-evenly',
-    borderWidth: 1,
-    borderColor: 'red',
+    // borderWidth: 1,
+    // borderColor: 'red',
   },
   tagsText: {
     color: 'white',
@@ -120,6 +143,14 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontSize: 18,
+  },
+  tagSelector: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    marginHorizontal: 5,
+    paddingVertical: 2,
+    borderRadius: 9,
   },
 });
 

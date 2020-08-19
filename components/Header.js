@@ -8,7 +8,7 @@ import {
   MenuTrigger,
 } from 'react-native-popup-menu';
 
-// TO-DO: Create Filter menu
+// TO-DO: Changing popup menu to popover style might fix position problem
 
 const EST_ORANGE = 'rgb(227, 131, 4)';
 // const EST_ORANGE_TRANSP = 'rgba(227, 131, 4, 0.8)';

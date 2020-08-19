@@ -19,6 +19,8 @@ const EST_ORANGE_TRANSP = 'rgba(227, 131, 4, 0.92)';
 // To-do: try to consolidate clothingContainer and colorsContainer to one style
 //        bc they might have the same style properties
 // To-do: Consider removing noneKey prop for OptionText since it will always be 0
+// To-do: Consolidate color OptionTexts to ColorOptions.js
+// To-do: Consolidate clothing OptionTexts to ClothingOptions.js
 const colorKey = {
   none: 0,
   black: 1,
