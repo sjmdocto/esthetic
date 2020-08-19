@@ -18,7 +18,31 @@ import TakePhoto from './components/TakePhoto';
 
 // To-do: android phones w/notches need paddingTop
 
+const clothingItems = [
+  {name: 'Red Tee', color: 4, type: 6, key: '0'},
+  {name: 'Black Pants', color: 1, type: 7, key: '1'},
+  {name: 'Red Octobers', color: 4, type: 10, key: '2'},
+  {name: 'White AF1', color: 2, type: 10, key: '3'},
+  {name: 'Green Crocs', color: 7, type: 10, key: '4'},
+  {name: 'Yellow pants', color: 6, type: 7, key: '5'},
+  {name: 'Black Jacket', color: 1, type: 1, key: '6'},
+  {name: 'Blue Dress Shirt', color: 8, type: 2, key: '7'},
+  {name: 'Orange Tsinelas', color: 5, type: 10, key: '8'},
+  {name: 'Black AF1 Activities', color: 1, type: 10, key: '9'},
+  {name: 'WHAT ARE THOSE!!!!', color: 1, type: 10, key: '10'},
+  {name: 'e-boy hoodie', color: 1, type: 4, key: '11'},
+  {name: 'Purple tee', color: 9, type: 6, key: '12'},
+  {name: 'Multicolored shoes', color: 10, type: 10, key: '13'},
+  {name: 'Grey jacket', color: 4, type: 1, key: '14'},
+  {name: 'White pants', color: 2, type: 7, key: '15'},
+  {name: 'Yellow shorts', color: 6, type: 8, key: '16'},
+  {name: 'Green button up', color: 7, type: 5, key: '17'},
+];
+
 const App = () => {
+  // Filter variables
+  const [filterColor, setFilterColor] = useState(0);
+  const [filterType, setFilterType] = useState(0);
   // Filter menu stuff
   const [menuVisible, setMenuVisible] = useState(false);
   const openMenuHandler = () => {
@@ -38,9 +62,22 @@ const App = () => {
   return (
     <MenuProvider>
       <SafeAreaView style={styles.main}>
-        <Menu visible={menuVisible} onClose={closeMenuHandler} />
+        <Menu
+          visible={menuVisible}
+          onClose={closeMenuHandler}
+          //filterColor={filterColor}
+          setFilterColor={setFilterColor}
+          //filterType={filterType}
+          setFilterType={setFilterType}
+        />
         <Header onPressMenu={openMenuHandler} onTakePhoto={openCamera} />
-        <Body />
+        <Body
+          clothingItems={clothingItems}
+          filterColor={filterColor}
+          //setFilterColor={setFilterColor}
+          filterType={filterType}
+          //setFilterType={setFilterType}
+        />
         <TakePhoto
           visible={cameraOpen}
           onOpen={openCamera}

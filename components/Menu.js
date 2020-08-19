@@ -55,6 +55,7 @@ const Menu = (props) => {
   const changeSelectedColor = (color) => {
     console.log('changeSelectedColor input:' + color);
     setselectedColor(color);
+    props.setFilterColor(color);
   };
 
   useEffect(() => {
@@ -66,6 +67,7 @@ const Menu = (props) => {
   const changeSelectedClothing = (clothing) => {
     console.log('changeSelectedClothing input:' + clothing);
     setSelectedClothing(clothing);
+    props.setFilterType(clothing);
   };
 
   useEffect(() => {
