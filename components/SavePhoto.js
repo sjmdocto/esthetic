@@ -7,6 +7,7 @@ import {
   Dimensions,
   TouchableOpacity,
   TouchableHighlight,
+  Image,
 } from 'react-native';
 import {
   Menu,
@@ -36,7 +37,13 @@ const SavePhoto = (props) => {
           </View>
           <View style={styles.body}>
             <View style={styles.imageContainer}>
-              <Text>Photo</Text>
+              {/* <Text>Photo</Text> */}
+              {/* Try to get photo, but if it cannot, use test img  */}
+              {/* <Image
+                style={styles.photo}
+                source={require('./resources/test.jpg')}
+              /> */}
+              <Image style={styles.photo} source={{uri: props.photoURI}} />
             </View>
             <View style={styles.tagsContainer}>
               <Text style={styles.tagsText}>Color:</Text>
@@ -72,28 +79,28 @@ const styles = StyleSheet.create({
     backgroundColor: '#1F1F1F',
     borderRadius: 40,
     bottom: SCREENHEIGHT / 5,
-    // borderWidth: 1,
-    // borderColor: 'purple',
+    borderWidth: 1,
+    borderColor: 'purple',
   },
   titleContainer: {
     flex: 1,
     paddingTop: 10,
-    // borderWidth: 1,
-    // borderColor: 'blue',
+    borderWidth: 1,
+    borderColor: 'blue',
   },
   body: {
     flex: 3,
     flexDirection: 'row',
     paddingHorizontal: 10,
-    // borderWidth: 1,
-    // borderColor: 'yellow',
+    borderWidth: 1,
+    borderColor: 'yellow',
   },
   imageContainer: {
     flex: 45,
     height: 140,
     width: 140,
-    backgroundColor: 'white',
     marginRight: 10,
+    backgroundColor: 'white',
   },
   buttonsContainer: {
     flex: 2,
@@ -101,8 +108,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-evenly',
     paddingHorizontal: 1,
-    // borderWidth: 1,
-    // borderColor: 'green',
+    borderWidth: 1,
+    borderColor: 'green',
   },
   titleText: {
     color: 'white',
@@ -111,8 +118,8 @@ const styles = StyleSheet.create({
   tagsContainer: {
     flex: 55,
     justifyContent: 'space-evenly',
-    // borderWidth: 1,
-    // borderColor: 'red',
+    borderWidth: 1,
+    borderColor: 'red',
   },
   tagsText: {
     color: 'white',
@@ -151,6 +158,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     paddingVertical: 2,
     borderRadius: 9,
+  },
+  photo: {
+    width: 140,
+    height: 140,
+    marginRight: 10,
   },
 });
 

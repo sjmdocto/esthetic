@@ -9,11 +9,14 @@ const SCREENWIDTH = Dimensions.get('window').width;
 const EST_ORANGE = 'rgb(227, 131, 4)';
 
 const TakePhoto = (props) => {
+  let photoURI;
   const takePicture = async () => {
     if (this.camera) {
       const options = {quality: 0.5, base64: true};
       const data = await this.camera.takePictureAsync(options);
-      console.log(data.uri);
+      //console.log(data.uri);
+      photoURI = data.uri;
+      console.warn('takePictureResponse ' + data);
     }
   };
   const [saveVisible, setSaveVisible] = useState(false);
@@ -30,7 +33,11 @@ const TakePhoto = (props) => {
   return (
     <Modal visible={props.visible}>
       <View style={styles.container}>
-        <SavePhoto saveVisibility={saveVisible} onDiscard={discardHandler} />
+        <SavePhoto
+          saveVisibility={saveVisible}
+          onDiscard={discardHandler}
+          photoURI={photoURI}
+        />
         <SafeAreaView style={styles.topContainer}>
           <Text style={styles.title}>Add New Clothes</Text>
         </SafeAreaView>
