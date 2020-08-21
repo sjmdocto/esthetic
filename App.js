@@ -6,10 +6,6 @@ import Menu from './components/Menu';
 import {MenuProvider} from 'react-native-popup-menu';
 import TakePhoto from './components/TakePhoto';
 
-// **Was gonna use for filter color selection, now
-// need to figure out how to delete from project**
-// import {Picker} from '@react-native-community/picker'
-
 // **Potentially will use for notch devices**
 // import {getDeviceId} from 'react-native-device-info';
 
@@ -18,6 +14,13 @@ import TakePhoto from './components/TakePhoto';
 
 // To-do: android phones w/notches need paddingTop
 
+// Brainstorming:
+// 1a) Save each photoBase64 to a WardrobeKey array since it will
+//      be used as the key for each clothingItem object in AsyncStorage
+// 1b) Save WardrobeKey array to AsyncStorage
+// 2)  Accessing the photos:
+//      When Body calls filterItems(), it will use the photoBase64 key
+//      to get the corresponding value.colorTag and value.typeTag from AsyncStorage
 const clothingItems = [
   {name: 'Red Tee', color: 4, type: 6, key: '0'},
   {name: 'Black Pants', color: 1, type: 7, key: '1'},

@@ -19,6 +19,7 @@ import {
 import Icon from 'react-native-vector-icons/Feather';
 import ColorTagMenu from './ColorTagMenu';
 import ClothingTagMenu from './ClothingTagMenu';
+import ClothingItem from './ClothingItem';
 
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
@@ -28,6 +29,17 @@ const EST_ORANGE = 'rgb(227, 131, 4)';
 // To-do: blur TakePhoto screen when this screen pops up
 
 const SavePhoto = (props) => {
+  const saveHandler = (photoURI, photoBase64, colorTag, typeTag) => {
+    // 1) Take in a) photo's URI, b) photo's base64, c) color tag, and d) type tag
+    // 2) Save a, b, c, and d into a ClothingItem object
+    // 3) Add ClothingItem object to Closet object for storage
+    <ClothingItem
+      photoURI={photoURI}
+      photoBase64={photoBase64}
+      colorTag={colorTag}
+      typeTag={typeTag}
+    />;
+  };
   return (
     <Modal visible={props.saveVisibility} transparent={true}>
       <MenuProvider skipInstanceCheck={true}>
@@ -75,32 +87,31 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     marginHorizontal: 20,
-    marginVertical: 300,
+    marginVertical: SCREENHEIGHT / 4,
     backgroundColor: '#1F1F1F',
     borderRadius: 40,
-    bottom: SCREENHEIGHT / 5,
-    borderWidth: 1,
-    borderColor: 'purple',
+    //bottom: SCREENHEIGHT / 5,
+    // borderWidth: 1,
+    // borderColor: 'purple',
   },
   titleContainer: {
     flex: 1,
     paddingTop: 10,
-    borderWidth: 1,
-    borderColor: 'blue',
+    // borderWidth: 1,
+    // borderColor: 'blue',
   },
   body: {
     flex: 3,
     flexDirection: 'row',
     paddingHorizontal: 10,
-    borderWidth: 1,
-    borderColor: 'yellow',
+    // borderWidth: 1,
+    // borderColor: 'yellow',
   },
   imageContainer: {
     flex: 45,
-    height: 140,
-    width: 140,
     marginRight: 10,
-    backgroundColor: 'white',
+    justifyContent: 'center',
+    //backgroundColor: 'white',
   },
   buttonsContainer: {
     flex: 2,
@@ -108,8 +119,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-evenly',
     paddingHorizontal: 1,
-    borderWidth: 1,
-    borderColor: 'green',
+    // borderWidth: 1,
+    // borderColor: 'green',
   },
   titleText: {
     color: 'white',
@@ -118,8 +129,8 @@ const styles = StyleSheet.create({
   tagsContainer: {
     flex: 55,
     justifyContent: 'space-evenly',
-    borderWidth: 1,
-    borderColor: 'red',
+    // borderWidth: 1,
+    // borderColor: 'red',
   },
   tagsText: {
     color: 'white',
@@ -163,6 +174,7 @@ const styles = StyleSheet.create({
     width: 140,
     height: 140,
     marginRight: 10,
+    // justifyContent: 'space-around',
   },
 });
 
