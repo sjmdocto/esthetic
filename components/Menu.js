@@ -49,30 +49,57 @@ const clothingKey = {
   shoes: 10,
 };
 
+/**
+ * Menu modal, called by App.js
+ * @param {*} props
+ * @param {boolean} props.visible - sets visibility of menu
+ * @param {func} props.onClose - close menu
+ * @param {func} props.setFilterColor
+ * @param {func} props.setFilterType
+ */
+
 const Menu = (props) => {
-  // Color filter stuff
+  /* COLOR FILTER STUFF */
+
+  // state variable
   const [selectedColor, setselectedColor] = useState(0);
+
+  /**
+   * Sets menu's selected color to input color,
+   * and sets global filter color to input color.
+   * Not used by menu, but is passed to OptionText
+   * @param
+   */
   const changeSelectedColor = (color) => {
     console.log('changeSelectedColor input:' + color);
     setselectedColor(color);
     props.setFilterColor(color);
   };
 
-  useEffect(() => {
-    console.log('selectedColor is now:' + selectedColor);
-  }, [selectedColor]);
+  // useEffect(() => {
+  //   console.log('selectedColor is now:' + selectedColor);
+  // }, [selectedColor]);
 
-  // Clothing type filter stuff
+  /* TYPE FILTER STUFF */
+
+  // state variable
   const [selectedClothing, setSelectedClothing] = useState(0);
+
+  /**
+   * Sets menu's selected type to input type,
+   * and sets global filter type to input type.
+   * Not used by menu, but is passed to OptionText
+   * @param
+   */
   const changeSelectedClothing = (clothing) => {
     console.log('changeSelectedClothing input:' + clothing);
     setSelectedClothing(clothing);
     props.setFilterType(clothing);
   };
 
-  useEffect(() => {
-    console.log('selectedClothing is now:' + selectedClothing);
-  }, [selectedClothing]);
+  // useEffect(() => {
+  //   console.log('selectedClothing is now:' + selectedClothing);
+  // }, [selectedClothing]);
 
   return (
     <Modal

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import {
@@ -7,6 +7,7 @@ import {
   MenuOption,
   MenuTrigger,
 } from 'react-native-popup-menu';
+import TakePhoto from './TakePhoto';
 
 // TO-DO: Changing popup menu to popover style might fix position problem
 
@@ -14,7 +15,34 @@ const EST_ORANGE = 'rgb(227, 131, 4)';
 // const EST_ORANGE_TRANSP = 'rgba(227, 131, 4, 0.8)';
 const HEADER_BUTTON_SIZE = 35;
 
+/**
+ * Header component for main screen, called by App.js.
+ * Contains Menu button, title, Add button, and TakePhoto screen modal
+ * @param {*} props
+ * @param {func} props.onPressMenu - open menu modal
+ */
+
 const Header = (props) => {
+  /* CAMERA STUFF */
+
+  // Camera state variable
+  const [cameraOpen, setCameraOpen] = useState(false);
+
+  /**
+   * Wrapper for setCameraOpen(true).
+   * Used to open Camera screen modal
+   */
+  const openCamera = () => {
+    setCameraOpen(true);
+  };
+
+  /**
+   * Wrapper for setCameraOpen(false).
+   * Used to close Camera screen modal
+   */
+  const closeCamera = () => {
+    setCameraOpen(false);
+  };
   return (
     <View style={styles.header}>
       <View style={styles.menuButton}>
@@ -33,14 +61,15 @@ const Header = (props) => {
           <Icon name="plus" size={HEADER_BUTTON_SIZE} color={EST_ORANGE} />
         </MenuTrigger>
         <MenuOptions customStyles={optionsStyles}>
-          <MenuOption
-            value={1}
-            onSelect={props.onTakePhoto}
-            text="Take photo"
-          />
+          <MenuOption value={1} onSelect={openCamera} text="Take photo" />
           <MenuOption value={2} text="Import..." />
         </MenuOptions>
       </Menu>
+      <TakePhoto
+        visible={cameraOpen}
+        onOpen={openCamera}
+        onClose={closeCamera}
+      />
     </View>
   );
 };

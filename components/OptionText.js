@@ -1,31 +1,45 @@
 import React, {useState, useEffect} from 'react';
 import {Text, StyleSheet, TouchableOpacity, View} from 'react-native';
 
-/** OptionText.js
- * inputs: selection, filterSelection, noneKey, onSelect()
- * output: <TouchableOpacity> object
- *
- * description:
- * Called by Menu.js, and is used to create a button
- * for each filter option. The button changes color when selected.
- *
- * INVARIANT:
- * Only one OptionText object can be selected at a time per filter type.
- * e.g. only one color can be selected at a time.
- **/
+/**
+ * Creates a button for the filter options, called by Menu.js
+ * Only one OptionText obj can be selected at a time per filter type
+ * Currently, the only filter types are color and type (clothing type)
+ * e.g. only one color can be selected at a time
+ * @param {*} props
+ * @param {number} props.selection - key for this filter option
+ * @param {} props.filterSelection - currently selected filter in Menu
+ * @param {number} props.noneKey - 0
+ * @param {func} props.onSelect - changeSelectedColor() or changeSelectedClothing()
+ */
 
 const OptionText = (props) => {
+  /* TEXT COLOR STUFF */
+
+  // state variable
   const [textColor, setTextColor] = useState('white');
-  // textColor depends on whether this OptionText object is selected
-  // so to properly render, call useEffect when changing textColor
+
+  /**
+   * Side effect of changing filterSelection is to potentially change the textColor
+   * of this OptionText object
+   */
   useEffect(() => {
+    /* if this filter option is equal to the currently selected filter,
+     * then set textColor to Black
+     */
     if (props.filterSelection === props.selection) {
-      setTextColor('black');
+      setTextColor('black'); // option is selected
     } else {
-      setTextColor('white');
+      setTextColor('white'); // option is NOT selected
     }
   }, [props.filterSelection, props.selection]);
 
+  /**
+   * Side effect of changing filterSelection is to potentially change the textColor
+   * @param {number} selection - this OptionText filter selection
+   * @param {number} filterSelection - Menu's currently selected filter
+   * @param {number} noneKey - 0
+   */
   const selectionHandler = (selection, filterSelection, noneKey) => {
     // if filterSelection === 'none',
     // OR if selection !== filterSelection
@@ -63,10 +77,6 @@ const styles = StyleSheet.create({
     //borderWidth: 1,
     //borderColor: 'black',
     width: 100,
-  },
-  // DEPRECATED: was used to style View within TouchableOpacity
-  button: {
-    //flexDirection: 'row',
   },
 });
 

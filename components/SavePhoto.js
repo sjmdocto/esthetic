@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -6,20 +6,11 @@ import {
   StyleSheet,
   Dimensions,
   TouchableOpacity,
-  TouchableHighlight,
   Image,
 } from 'react-native';
-import {
-  Menu,
-  MenuOptions,
-  MenuOption,
-  MenuProvider,
-  MenuTrigger,
-} from 'react-native-popup-menu';
-import Icon from 'react-native-vector-icons/Feather';
+import {MenuProvider} from 'react-native-popup-menu';
 import ColorTagMenu from './ColorTagMenu';
 import ClothingTagMenu from './ClothingTagMenu';
-import ClothingItem from './ClothingItem';
 
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
@@ -28,18 +19,23 @@ const EST_ORANGE = 'rgb(227, 131, 4)';
 
 // To-do: blur TakePhoto screen when this screen pops up
 
+/**
+ *  Popup menu for when you press the shutter, that is
+ *  called by TakePhoto.js
+ *  @param {*} props
+ *  @param {boolean} props.saveVisibility - used by main Modal component
+ *  @param {func} props.onSave - save button handler that
+ *  @param {func} props.onDiscard - discard button handler that
+ *  @param {string} props.photoURI: the URI of the photo just taken
+ *  @param {string} props.photoBase64: base64 representation of photo just taken
+ */
+
 const SavePhoto = (props) => {
-  const saveHandler = (photoURI, photoBase64, colorTag, typeTag) => {
-    // 1) Take in a) photo's URI, b) photo's base64, c) color tag, and d) type tag
-    // 2) Save a, b, c, and d into a ClothingItem object
-    // 3) Add ClothingItem object to Closet object for storage
-    <ClothingItem
-      photoURI={photoURI}
-      photoBase64={photoBase64}
-      colorTag={colorTag}
-      typeTag={typeTag}
-    />;
-  };
+  // state variable used by ColorTagMenu
+  const [colorTag, setColorTag] = useState(1);
+  // state variable used by ClothingTagMenu
+  const [typeTag, setTypeTag] = useState(1);
+
   return (
     <Modal visible={props.saveVisibility} transparent={true}>
       <MenuProvider skipInstanceCheck={true}>
@@ -49,19 +45,13 @@ const SavePhoto = (props) => {
           </View>
           <View style={styles.body}>
             <View style={styles.imageContainer}>
-              {/* <Text>Photo</Text> */}
-              {/* Try to get photo, but if it cannot, use test img  */}
-              {/* <Image
-                style={styles.photo}
-                source={require('./resources/test.jpg')}
-              /> */}
               <Image style={styles.photo} source={{uri: props.photoURI}} />
             </View>
             <View style={styles.tagsContainer}>
               <Text style={styles.tagsText}>Color:</Text>
-              <ColorTagMenu />
+              <ColorTagMenu setColorTag={setColorTag} />
               <Text style={styles.tagsText}>Type:</Text>
-              <ClothingTagMenu />
+              <ClothingTagMenu setTypeTag={setTypeTag} />
             </View>
           </View>
           <View style={styles.buttonsContainer}>
@@ -72,9 +62,19 @@ const SavePhoto = (props) => {
                 <Text style={styles.buttonText}>Discard</Text>
               </View>
             </TouchableOpacity>
-            <View style={styles.saveButton}>
-              <Text style={styles.buttonText}>Save</Text>
-            </View>
+            <TouchableOpacity
+              onPress={props.onSave.bind(
+                this,
+                props.photoURI,
+                props.photoBase64,
+                colorTag,
+                typeTag,
+              )}
+              style={styles.saveButton}>
+              <View>
+                <Text style={styles.buttonText}>Save</Text>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
       </MenuProvider>
