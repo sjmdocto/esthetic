@@ -44,8 +44,8 @@ const OptionText = (props) => {
     // if filterSelection === 'none',
     // OR if selection !== filterSelection
     // set filterSelection to selection and make textColor black
-    console.log('selectionHandler selection:' + selection);
-    console.log('selectionHandler filterSelection:' + filterSelection);
+    // console.log('selectionHandler selection:' + selection);
+    // console.log('selectionHandler filterSelection:' + filterSelection);
     if (filterSelection === noneKey || selection !== filterSelection) {
       props.onSelect(selection);
     }

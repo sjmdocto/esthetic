@@ -87,25 +87,36 @@ const TakePhoto = (props) => {
    * @param typeTag - selected typeTag for the photo
    */
   const saveHandler = (uri, base64, colorTag, typeTag) => {
-    const storeData = async (value) => {
-      try {
-        const jsonValue = JSON.stringify(value);
-        await AsyncStorage.setItem(base64, jsonValue);
-        console.log('Data was stored');
-      } catch (e) {
-        console.log('Saving error');
-        console.log(e);
-      }
-    };
-    let clothingItem = {
+    // const storeData = async (value) => {
+    //   try {
+    //     const jsonValue = JSON.stringify(value);
+    //     await AsyncStorage.setItem(base64, jsonValue);
+    //     console.log('Data was stored');
+    //   } catch (e) {
+    //     console.log('Saving error');
+    //     console.log(e);
+    //   }
+    // };
+
+    // const vs let here?
+    const clothingItem = {
       photoURI: uri,
       // don't need to store since its saved as the key for AsyncStorage
       // photoBase64: {photoBase64},
       colorTag: colorTag,
       typeTag: typeTag,
+      key: base64,
     };
     console.log('clothingItem.uri: ' + uri);
-    storeData(clothingItem);
+
+    // storeData(clothingItem);
+
+    /**
+     * Add new clothingItem to wardrobe
+     */
+    // console.log('clothingItem = ' + clothingItem);
+    props.addToWardrobe(clothingItem, base64);
+
     setSaveVisible(false);
   };
   return (

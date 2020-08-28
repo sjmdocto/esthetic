@@ -69,6 +69,7 @@ const Header = (props) => {
         visible={cameraOpen}
         onOpen={openCamera}
         onClose={closeCamera}
+        addToWardrobe={props.addToWardrobe}
       />
     </View>
   );

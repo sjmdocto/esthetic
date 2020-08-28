@@ -16,81 +16,21 @@ Basically, scrolling capability only works
 if it's actually needed on Android.
 */
 const SCREENWIDTH = Dimensions.get('window').width;
+const numColumns = 3;
 
 // To-do: Fix tile size when there aren't 3 items per row
 
 /**
  * Holds clothing item grid
  * @param {*} props
- * @param {array} props.wardrobe - all saved clothing items
+ * @param {array} props.getWardrobe - all saved clothing items
  * @param {integer} props.filterColor
  * @param props.filterType
  */
 
 const Body = (props) => {
-  // Async storage stuff
-  const [wardrobe, setWardrobe] = useState(getClothing);
-
-  /**
-   * Helper function for getClothing.
-   *
-   * Gets keys for all the clothingItems in AsyncStorage.
-   * @return {array} - Array of all the keys
-   */
-  const getKeysToWardrobe = async () => {
-    let keys = [];
-    try {
-      keys = await AsyncStorage.getAllKeys();
-      console.log('Keys = ' + keys);
-    } catch (e) {
-      console.log(e);
-    }
-    return keys;
-  };
-
-  /**
-   * Helper function for getClothing.
-   *
-   * Uses keys to get the values of each Asyncstorage clothingItem objects
-   * @param {array} - Keys for each clothingItem object
-   * @return {array} - Array of all the clothingItem objects
-   */
-  const wardrobeKeysToItems = (keys) => {
-    let i = 0;
-    let items = [];
-
-    const getData = async () => {
-      try {
-        const jsonValue = await AsyncStorage.getItem(keys[i]);
-        console.log(JSON.parse(jsonValue));
-        return jsonValue != null ? JSON.parse(jsonValue) : null;
-      } catch (e) {
-        console.log(e);
-      }
-    };
-
-    for (i = 0; i < keys.length; i++) {
-      items[i] = getData();
-      //items[i] = AsyncStorage.getItem(keys[i]);
-      console.log(items[i]);
-      //items[i] = items[i].photoURI;
-    }
-    return items;
-  };
-
-  /**
-   * Gets all clothingItem objects from AsyncStorage, updates the wardrobe with them,
-   * and then returns the wardrobe.
-   * @return {array}
-   */
-  const getClothing = () => {
-    // 1) Get keys
-    let clothingKeys = getKeysToWardrobe();
-    console.log('clothingKeys = ' + clothingKeys);
-    // 2) Get values from key-value pairs
-    let clothing = wardrobeKeysToItems(clothingKeys);
-    return clothing;
-  };
+  // const [filteredWardrobe, setFilteredWardrobe] = useState(props.getWardrobe);
+  console.log('Body: re-rendered.');
 
   /**
    * Filters wardrobe by the currently selected color and type filters
@@ -99,41 +39,58 @@ const Body = (props) => {
    * @param {filterType}
    * @return {array} - the filtered wardrobe
    */
-  const filterItems = (items, filterColor, filterType) => {
-    console.log('filterItems: items= ' + items);
-    if (items === undefined) {
+  const filterItems = (wardrobe, filterColor, filterType) => {
+    console.log('filterItems: wardrobe = ' + wardrobe);
+
+    if (wardrobe === undefined) {
+      console.log('option 0');
       return []; // !!! bad in relation to <Image> call !!!
     }
     // 1) No color filter, no type filter
-    if (filterColor === 0 && filterType === 0) {
-      return items;
+    else if (filterColor === 0 && filterType === 0) {
+      console.log('option 1');
+      return wardrobe;
     }
     // 2) Color filter, but no type filter
     else if (filterColor !== 0 && filterType === 0) {
-      return items.filter((item) => item.colorTag === filterColor);
+      console.log('option 2');
+      return wardrobe.filter((item) => item.colorTag === filterColor);
     }
     // 3) No color filter, type filter only
     else if (filterColor === 0 && filterType !== 0) {
-      return items.filter((item) => item.typeTag === filterType);
+      console.log('option 3');
+      return wardrobe.filter((item) => item.typeTag === filterType);
     }
     // 4) Color filter and type filter
     else if (filterColor !== 0 && filterType !== 0) {
-      let filterByColor = items.filter((item) => item.colorTag === filterColor);
+      let filterByColor = wardrobe.filter(
+        (item) => item.colorTag === filterColor,
+      );
       let filtered = filterByColor.filter(
         (item) => item.typeTag === filterType,
       );
+      console.log('option 4');
+      console.log('filterItems: wardrobe[0].uri = ' + wardrobe[0].photoURI);
       return filtered;
     }
   };
+
+  // const formatGrid = (wardrobe, numColumns) => {
+  //   let numLastRow = wardrobe % numColumns;
+  //   let formattedWardrobe = wardrobe.push()
+  // };
   return (
     <View style={styles.container}>
       <FlatList
-        numColumns={3}
-        data={filterItems(wardrobe, props.filterColor, props.filterType)}
+        numColumns={numColumns}
+        data={filterItems(props.wardrobe, props.filterColor, props.filterType)}
         renderItem={({item}) => (
           <View style={styles.item}>
-            {/* <Text>{item.photoURI}</Text> */}
-            <Image source={{uri: item.photoURI}} />
+            {/* <Image source={{uri: item.photoURI}} style={styles.photo} /> */}
+            <Image
+              source={require('./resources/test.jpg')}
+              style={styles.photo}
+            />
           </View>
         )}
       />
@@ -146,13 +103,19 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   item: {
-    backgroundColor: 'lightgray',
+    // backgroundColor: 'lightgray',
     margin: 1,
-    flex: 1,
+    flex: 1 / 3,
     height: SCREENWIDTH / 3,
     width: SCREENWIDTH / 3,
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // borderColor: 'black',
+    // borderWidth: 2,
+  },
+  photo: {
+    height: SCREENWIDTH / 3,
+    width: SCREENWIDTH / 3,
   },
 });
 

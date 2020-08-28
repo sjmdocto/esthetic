@@ -71,7 +71,7 @@ const Menu = (props) => {
    * @param
    */
   const changeSelectedColor = (color) => {
-    console.log('changeSelectedColor input:' + color);
+    // console.log('changeSelectedColor input:' + color);
     setselectedColor(color);
     props.setFilterColor(color);
   };
@@ -92,7 +92,7 @@ const Menu = (props) => {
    * @param
    */
   const changeSelectedClothing = (clothing) => {
-    console.log('changeSelectedClothing input:' + clothing);
+    // console.log('changeSelectedClothing input:' + clothing);
     setSelectedClothing(clothing);
     props.setFilterType(clothing);
   };
