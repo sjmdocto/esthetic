@@ -97,8 +97,8 @@ const ColorTagMenu = (props) => {
   const colorSelectHandler = (color) => {
     setColorSelect(color);
     tagToKey(color);
-    console.log(colorSelect);
   };
+
   return (
     <Menu>
       <MenuTrigger>

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   Modal,
   View,
@@ -35,7 +35,7 @@ const colorKey = {
   multicolored: 10,
 };
 // Add dresses, and other types we're missing?
-const clothingKey = {
+const typeKey = {
   none: 0,
   outerwear: 1,
   formalwear: 2,
@@ -96,10 +96,6 @@ const Menu = (props) => {
     setSelectedClothing(clothing);
     props.setFilterType(clothing);
   };
-
-  // useEffect(() => {
-  //   console.log('selectedClothing is now:' + selectedClothing);
-  // }, [selectedClothing]);
 
   return (
     <Modal
@@ -198,72 +194,72 @@ const Menu = (props) => {
               </View>
               <View style={styles.optionsContainer}>
                 <OptionText
-                  selection={clothingKey.outerwear}
+                  selection={typeKey.outerwear}
                   filterSelection={selectedClothing}
-                  noneKey={clothingKey.none}
+                  noneKey={typeKey.none}
                   onSelect={changeSelectedClothing}>
                   Outerwear
                 </OptionText>
                 <OptionText
-                  selection={clothingKey.formalwear}
+                  selection={typeKey.formalwear}
                   filterSelection={selectedClothing}
-                  noneKey={clothingKey.none}
+                  noneKey={typeKey.none}
                   onSelect={changeSelectedClothing}>
                   Formal Wear
                 </OptionText>
                 <OptionText
-                  selection={clothingKey.sweaters}
+                  selection={typeKey.sweaters}
                   filterSelection={selectedClothing}
-                  noneKey={clothingKey.none}
+                  noneKey={typeKey.none}
                   onSelect={changeSelectedClothing}>
                   Sweaters
                 </OptionText>
                 <OptionText
-                  selection={clothingKey.hoodies}
+                  selection={typeKey.hoodies}
                   filterSelection={selectedClothing}
-                  noneKey={clothingKey.none}
+                  noneKey={typeKey.none}
                   onSelect={changeSelectedClothing}>
                   Hoodies
                 </OptionText>
                 <OptionText
-                  selection={clothingKey.buttonUps}
+                  selection={typeKey.buttonUps}
                   filterSelection={selectedClothing}
-                  noneKey={clothingKey.none}
+                  noneKey={typeKey.none}
                   onSelect={changeSelectedClothing}>
                   Button Ups
                 </OptionText>
                 <OptionText
-                  selection={clothingKey.tees}
+                  selection={typeKey.tees}
                   filterSelection={selectedClothing}
-                  noneKey={clothingKey.none}
+                  noneKey={typeKey.none}
                   onSelect={changeSelectedClothing}>
                   Tees
                 </OptionText>
                 <OptionText
-                  selection={clothingKey.pants}
+                  selection={typeKey.pants}
                   filterSelection={selectedClothing}
-                  noneKey={clothingKey.none}
+                  noneKey={typeKey.none}
                   onSelect={changeSelectedClothing}>
                   Pants
                 </OptionText>
                 <OptionText
-                  selection={clothingKey.shorts}
+                  selection={typeKey.shorts}
                   filterSelection={selectedClothing}
-                  noneKey={clothingKey.none}
+                  noneKey={typeKey.none}
                   onSelect={changeSelectedClothing}>
                   Shorts
                 </OptionText>
                 <OptionText
-                  selection={clothingKey.activeWear}
+                  selection={typeKey.activeWear}
                   filterSelection={selectedClothing}
-                  noneKey={clothingKey.none}
+                  noneKey={typeKey.none}
                   onSelect={changeSelectedClothing}>
                   Activewear
                 </OptionText>
                 <OptionText
-                  selection={clothingKey.shoes}
+                  selection={typeKey.shoes}
                   filterSelection={selectedClothing}
-                  noneKey={clothingKey.none}
+                  noneKey={typeKey.none}
                   onSelect={changeSelectedClothing}>
                   Shoes
                 </OptionText>

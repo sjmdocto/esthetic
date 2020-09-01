@@ -42,7 +42,7 @@ const typeKey = {
  * @param {func} setTypeTag
  */
 
-const ClothingTagMenu = (props) => {
+const TypeTagMenu = (props) => {
   // state variable for currently selected clothing type from menu
   const [clothingSelect, setClothingSelect] = useState(typeTag.outerwear);
 
@@ -96,9 +96,8 @@ const ClothingTagMenu = (props) => {
    */
   const clothingSelectHandler = (clothing) => {
     setClothingSelect(clothing);
-    tagToKey(clothing);
-    console.log(clothingSelect);
   };
+
   return (
     <Menu>
       <MenuTrigger>
@@ -174,4 +173,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ClothingTagMenu;
+export default TypeTagMenu;

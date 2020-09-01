@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import {MenuProvider} from 'react-native-popup-menu';
 import ColorTagMenu from './ColorTagMenu';
-import ClothingTagMenu from './ClothingTagMenu';
+import TypeTagMenu from './TypeTagMenu';
 
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
@@ -26,14 +26,13 @@ const EST_ORANGE = 'rgb(227, 131, 4)';
  *  @param {boolean} props.saveVisibility - used by main Modal component
  *  @param {func} props.onSave - save button handler that
  *  @param {func} props.onDiscard - discard button handler that
- *  @param {string} props.photoURI: the URI of the photo just taken
- *  @param {string} props.photoBase64: base64 representation of photo just taken
+ *  @param {string} props.photo: base64 representation of photo just taken
  */
 
 const SavePhoto = (props) => {
   // state variable used by ColorTagMenu
   const [colorTag, setColorTag] = useState(1);
-  // state variable used by ClothingTagMenu
+  // state variable used by TypeTagMenu
   const [typeTag, setTypeTag] = useState(1);
 
   return (
@@ -45,13 +44,16 @@ const SavePhoto = (props) => {
           </View>
           <View style={styles.body}>
             <View style={styles.imageContainer}>
-              <Image style={styles.photo} source={{uri: props.photoURI}} />
+              <Image
+                style={styles.photo}
+                source={{uri: `data:image/png;base64,${props.photo}`}}
+              />
             </View>
             <View style={styles.tagsContainer}>
               <Text style={styles.tagsText}>Color:</Text>
               <ColorTagMenu setColorTag={setColorTag} />
               <Text style={styles.tagsText}>Type:</Text>
-              <ClothingTagMenu setTypeTag={setTypeTag} />
+              <TypeTagMenu setTypeTag={setTypeTag} />
             </View>
           </View>
           <View style={styles.buttonsContainer}>
@@ -63,13 +65,7 @@ const SavePhoto = (props) => {
               </View>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={props.onSave.bind(
-                this,
-                props.photoURI,
-                props.photoBase64,
-                colorTag,
-                typeTag,
-              )}
+              onPress={props.onSave.bind(this, props.photo, colorTag, typeTag)}
               style={styles.saveButton}>
               <View>
                 <Text style={styles.buttonText}>Save</Text>
