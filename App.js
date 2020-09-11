@@ -6,8 +6,6 @@ import Menu from './components/Menu';
 import {MenuProvider} from 'react-native-popup-menu';
 import AsyncStorage from '@react-native-community/async-storage';
 
-// import AsyncStorage from '@react-native-community/async-storage';
-
 // **Potentially will use for notch devices**
 // import {getDeviceId} from 'react-native-device-info';
 
@@ -15,9 +13,10 @@ import AsyncStorage from '@react-native-community/async-storage';
 // const EST_ORANGE_TRANSP = 'rgba(227, 131, 4, 0.92)';
 
 // To-do: android phones w/notches need paddingTop
+// To-do: Reset filters when you go to TakePhoto
 
 const App = () => {
-  /* ASYNC STORAGE STUFF */
+  /* WARDROBE STUFF */
   const [wardrobe, setWardrobe] = useState(getClothing);
 
   const getWardrobe = () => {
@@ -27,21 +26,16 @@ const App = () => {
   /**
    * Helper function for getClothing.
    *
-   * Gets keys for all the clothingItems in AsyncStorage.
+   * Gets keys for all the data (clothingItems) in AsyncStorage.
    * @return {array} - Array of all the keys
    */
   const getKeysToWardrobe = async () => {
     let keys = [];
     try {
       keys = await AsyncStorage.getAllKeys();
+      return keys;
     } catch (e) {
       console.log(e);
-    }
-
-    if (keys === undefined) {
-      console.warn('keys = undefined');
-    } else {
-      return keys;
     }
   };
 
@@ -103,7 +97,7 @@ const App = () => {
   /**
    * Add clothingItem object to wardrobe
    * @param {object} clothingItem
-   * @param {string } key - a uuidv4 used for key in AsyncStorage
+   * @param {string} key - a uuidv4 used for key in AsyncStorage
    */
   const addToWardrobe = (clothingItem, key) => {
     let oldWardrobe = getWardrobe(); // array
@@ -116,7 +110,7 @@ const App = () => {
       newWardrobe = [clothingItem];
     } else {
       // else, create a new array containing oldWardrobe plus new clothingItem
-      newWardrobe = [...oldWardrobe, clothingItem];
+      newWardrobe = [clothingItem, ...oldWardrobe];
     }
 
     // Update wardrobe state variable
@@ -124,6 +118,54 @@ const App = () => {
 
     // Then add the clothing item to AsyncStorage
     addToAsyncStorage(clothingItem, key);
+  };
+
+  /**
+   * Delete clothingItem object from wardrobe
+   * @param {string} key - key of item to remove (a uuidv4)
+   */
+  const deleteFromWardrobe = (key) => {
+    /**
+     * More efficient filter function
+     * @param {array} array - oldWardrobe
+     * @return {array}
+     */
+    const customFilter = (array) => {
+      let isFound = false;
+      let i = 0;
+      let length = array.length;
+      let filteredWardrobe = [];
+      while (isFound === false && i < length) {
+        if (key !== array[i].key) {
+          filteredWardrobe.push(array[i]);
+        } else {
+          isFound = true;
+        }
+        i++;
+      }
+      // Now that the item to remove has been found,
+      // no need to check if keys match up
+      while (i < length) {
+        filteredWardrobe.push(array[i]);
+        i++;
+      }
+      return filteredWardrobe;
+    };
+
+    // Delete item from wardrobe array
+    let oldWardrobe = getWardrobe();
+    let newWardrobe = customFilter(oldWardrobe);
+    setWardrobe(newWardrobe);
+
+    // Delete item from AsyncStorage
+    const removeValue = async () => {
+      try {
+        await AsyncStorage.removeItem(key);
+      } catch (e) {
+        // remove error
+      }
+    };
+    removeValue();
   };
 
   /* FILTER STUFF */
@@ -166,6 +208,7 @@ const App = () => {
           filterColor={filterColor}
           filterType={filterType}
           wardrobe={wardrobe}
+          onRemove={deleteFromWardrobe}
         />
       </SafeAreaView>
     </MenuProvider>
