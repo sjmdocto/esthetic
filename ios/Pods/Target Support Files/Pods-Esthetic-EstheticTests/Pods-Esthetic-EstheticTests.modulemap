@@ -1,6 +1,0 @@
-module Pods_Esthetic_EstheticTests {
-  umbrella header "Pods-Esthetic-EstheticTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
