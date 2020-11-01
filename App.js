@@ -1,225 +1,43 @@
 import React, {useState} from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
-import Header from './components/Header';
-import Body from './components/Body';
-import Menu from './components/Menu';
-import {MenuProvider} from 'react-native-popup-menu';
-import AsyncStorage from '@react-native-community/async-storage';
+import ClosetScreen from './src/screens/Closet/ClosetScreen';
+// import {testCloset} from './src/components/Grid/testCloset';
+// import {smallTestCloset} from './src/components/Grid/smallTestCloset';
+import CameraScreen from './src/screens/Camera/CameraScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import getSavedCloset from './src/util/getSavedCloset';
+import ClosetContext from './src/util/ClosetContext';
 
-// **Potentially will use for notch devices**
-// import {getDeviceId} from 'react-native-device-info';
-
-// const EST_ORANGE = 'rgb(227, 131, 4)';
-// const EST_ORANGE_TRANSP = 'rgba(227, 131, 4, 0.92)';
-
-// To-do: android phones w/notches need paddingTop
-// To-do: Reset filters when you go to TakePhoto
+const Stack = createStackNavigator();
 
 const App = () => {
-  /* WARDROBE STUFF */
-  const [wardrobe, setWardrobe] = useState(getClothing);
-
-  const getWardrobe = () => {
-    return wardrobe;
-  };
-
-  /**
-   * Helper function for getClothing.
-   *
-   * Gets keys for all the data (clothingItems) in AsyncStorage.
-   * @return {array} - Array of all the keys
-   */
-  const getKeysToWardrobe = async () => {
-    let keys = [];
-    try {
-      keys = await AsyncStorage.getAllKeys();
-      return keys;
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  /**
-   * Helper function for getClothing.
-   *
-   * Uses keys to get the values of each Asyncstorage clothingItem objects
-   * @param {array} keys - keys for each clothingItem object
-   * @return {array} - Array of all the clothingItem objects
-   */
-  const wardrobeKeysToItems = (keys) => {
-    let i = 0;
-    let items = [];
-
-    const getData = async () => {
-      try {
-        const jsonValue = await AsyncStorage.getItem(keys[i]);
-        return jsonValue != null ? JSON.parse(jsonValue) : null;
-      } catch (e) {
-        console.warn(e);
-      }
-    };
-
-    for (i = 0; i < keys.length; i++) {
-      items[i] = getData();
-    }
-    return items;
-  };
-
-  /**
-   * Gets all clothingItem objects from AsyncStorage
-   * @return {array}
-   */
-  const getClothing = () => {
-    // 1) Get keys
-    let clothingKeys = getKeysToWardrobe();
-    // 2) Get values from key-value pairs
-    let clothing = wardrobeKeysToItems(clothingKeys);
-    return clothing;
-  };
-
-  /**
-   * Helper function for addToWardrobe
-   *
-   * Make clothingItem object into a JSON string,
-   * then add that string to AsyncStorage.
-   * @param {object} clothingItem
-   * @param {string} key - a uuidv4 used for key in AsyncStorage
-   */
-  const addToAsyncStorage = async (clothingItem, key) => {
-    try {
-      const jsonValue = JSON.stringify(clothingItem);
-      await AsyncStorage.setItem(key, jsonValue);
-    } catch (e) {
-      console.warn('Error occurred when adding to AsyncStorage: ' + e);
-    }
-  };
-
-  /**
-   * Add clothingItem object to wardrobe
-   * @param {object} clothingItem
-   * @param {string} key - a uuidv4 used for key in AsyncStorage
-   */
-  const addToWardrobe = (clothingItem, key) => {
-    let oldWardrobe = getWardrobe(); // array
-    let newWardrobe; // array
-
-    /* if oldWardrobe is empty,
-     * then let newWardrobe be a new array with just the clothingItem
-     */
-    if (oldWardrobe === undefined) {
-      newWardrobe = [clothingItem];
-    } else {
-      // else, create a new array containing oldWardrobe plus new clothingItem
-      newWardrobe = [clothingItem, ...oldWardrobe];
-    }
-
-    // Update wardrobe state variable
-    setWardrobe(newWardrobe);
-
-    // Then add the clothing item to AsyncStorage
-    addToAsyncStorage(clothingItem, key);
-  };
-
-  /**
-   * Delete clothingItem object from wardrobe
-   * @param {string} key - key of item to remove (a uuidv4)
-   */
-  const deleteFromWardrobe = (key) => {
-    /**
-     * More efficient filter function
-     * @param {array} array - oldWardrobe
-     * @return {array}
-     */
-    const customFilter = (array) => {
-      let isFound = false;
-      let i = 0;
-      let length = array.length;
-      let filteredWardrobe = [];
-      while (isFound === false && i < length) {
-        if (key !== array[i].key) {
-          filteredWardrobe.push(array[i]);
-        } else {
-          isFound = true;
-        }
-        i++;
-      }
-      // Now that the item to remove has been found,
-      // no need to check if keys match up
-      while (i < length) {
-        filteredWardrobe.push(array[i]);
-        i++;
-      }
-      return filteredWardrobe;
-    };
-
-    // Delete item from wardrobe array
-    let oldWardrobe = getWardrobe();
-    let newWardrobe = customFilter(oldWardrobe);
-    setWardrobe(newWardrobe);
-
-    // Delete item from AsyncStorage
-    const removeValue = async () => {
-      try {
-        await AsyncStorage.removeItem(key);
-      } catch (e) {
-        // remove error
-      }
-    };
-    removeValue();
-  };
-
-  /* FILTER STUFF */
-
-  // Filter state variables
-  const [filterColor, setFilterColor] = useState(0);
-  const [filterType, setFilterType] = useState(0);
-
-  /* FILTER MENU STUFF */
-
-  // Filter menu state variable
-  const [menuVisible, setMenuVisible] = useState(false);
-
-  /**
-   * Wrapper for setMenuVisible(true).
-   * Used to open Menu modal
-   */
-  const openMenuHandler = () => {
-    setMenuVisible(true);
-  };
-  /**
-   * Wrapper for setMenuVisible(false).
-   * Used to close Menu modal
-   */
-  const closeMenuHandler = () => {
-    setMenuVisible(false);
-  };
+  // Initialize context
+  // --closet
+  const initialCloset = getSavedCloset();
+  // const initialCloset = largeTestCloset;
+  const [closet, setCloset] = useState(initialCloset);
+  const value = {closet, setCloset};
+  // const ClosetContext = createContext([closet, setCloset]);
 
   return (
-    <MenuProvider>
-      <SafeAreaView style={styles.main}>
-        <Menu
-          visible={menuVisible}
-          onClose={closeMenuHandler}
-          setFilterColor={setFilterColor}
-          setFilterType={setFilterType}
-        />
-        <Header onPressMenu={openMenuHandler} addToWardrobe={addToWardrobe} />
-        <Body
-          filterColor={filterColor}
-          filterType={filterType}
-          wardrobe={wardrobe}
-          onRemove={deleteFromWardrobe}
-        />
-      </SafeAreaView>
-    </MenuProvider>
+    <ClosetContext.Provider value={value}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName={'Closet'}>
+          <Stack.Screen
+            name={'Closet'}
+            component={ClosetScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name={'Camera'}
+            component={CameraScreen}
+            options={{headerShown: false}}
+          />
+        </Stack.Navigator>
+        {/* <ClosetScreen closet={largeTestCloset} filterColor={0} filterType={0} /> */}
+      </NavigationContainer>
+    </ClosetContext.Provider>
   );
 };
-
-const styles = StyleSheet.create({
-  main: {
-    flex: 1,
-    backgroundColor: '#E5E5E5',
-  },
-});
 
 export default App;

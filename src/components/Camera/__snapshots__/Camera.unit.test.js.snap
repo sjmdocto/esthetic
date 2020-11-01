@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Camera test suite: Footer renders properly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "black",
+      "flex": 1,
+      "flexDirection": "row",
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "left": 125,
+        "position": "absolute",
+      }
+    }
+  >
+    <Text
+      accessibilityLabel="Back button"
+      accessible={true}
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "rgb(227, 131, 4)",
+            "fontSize": 25,
+          },
+          undefined,
+          Object {
+            "fontFamily": "Feather",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "position": "absolute",
+      }
+    }
+  >
+    <Text
+      accessibilityLabel="Shutter button"
+      accessible={true}
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "white",
+            "fontSize": 35,
+          },
+          undefined,
+          Object {
+            "fontFamily": "Feather",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Camera test suite: Header renders properly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#E5E5E5",
+      "flex": 1,
+      "flexDirection": "row",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 17,
+      }
+    }
+  >
+    Add New Clothes
+  </Text>
+</RCTSafeAreaView>
+`;

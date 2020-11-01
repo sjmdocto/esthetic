@@ -1,0 +1,841 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterMenu test suite: FilterMenu renders properly. 1`] = `
+<Modal
+  animationType="fade"
+  hardwareAccelerated={false}
+  statusBarTranslucent={true}
+  transparent={true}
+  visible={true}
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "paddingTop": 0,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(227, 131, 4, 0.8)",
+          "color": "white",
+          "flex": 9,
+          "paddingBottom": 10,
+          "paddingTop": 45,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "borderBottomColor": "white",
+            "borderBottomWidth": 1,
+            "flex": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "paddingLeft": "5%",
+              "paddingTop": "3%",
+            }
+          }
+        >
+          Filters
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 100,
+            "paddingLeft": "5%",
+            "paddingTop": "5%",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flexGrow": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 18,
+                  },
+                  undefined,
+                  Object {
+                    "fontFamily": "Feather",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 16,
+                  "paddingLeft": 5,
+                }
+              }
+            >
+              Colors
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flexGrow": 1,
+                "justifyContent": "space-evenly",
+                "paddingLeft": "20%",
+              }
+            }
+          >
+            <View
+              accessibilityLabel="Black filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Black
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="White filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  White
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Grey filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Grey
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Red filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Red
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Orange filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Orange
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Yellow filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Yellow
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Green filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Green
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Blue filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Blue
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Purple filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Purple
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Multicolored filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Multicolored
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexGrow": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 18,
+                  },
+                  undefined,
+                  Object {
+                    "fontFamily": "Feather",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 16,
+                  "paddingLeft": 5,
+                }
+              }
+            >
+              Clothing
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flexGrow": 1,
+                "justifyContent": "space-evenly",
+                "paddingLeft": "20%",
+              }
+            }
+          >
+            <View
+              accessibilityLabel="Outerwear filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Outerwear
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Formal Wear filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Formal Wear
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Sweaters filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Sweaters
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Hoodies filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Hoodies
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Button Ups filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Button Ups
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Tees filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Tees
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Pants filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Pants
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Shorts filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Shorts
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Activewear filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Activewear
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Shoes filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Shoes
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingBottom": "5%",
+            }
+          }
+        >
+          <View
+            accessibilityLabel="Done button"
+            accessible={true}
+            focusable={false}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "opacity": 1,
+                "width": 50,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Done
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityHint="Closes Filter Menu"
+      accessibilityLabel="Outside of Filter Menu area"
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "flex": 4,
+        }
+      }
+    />
+  </View>
+</Modal>
+`;

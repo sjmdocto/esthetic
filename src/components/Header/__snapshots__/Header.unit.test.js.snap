@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header test suite Header renders properly 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#E5E5E5",
+          "borderBottomColor": "black",
+          "borderBottomWidth": 1,
+          "flex": 0,
+          "flexDirection": "row",
+          "height": "7%",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "left": -110,
+          }
+        }
+      >
+        <Text
+          accessibilityLabel="Menu button"
+          accessible={true}
+          allowFontScaling={false}
+          onPress={
+            [MockFunction openFilterMenu] {
+              "calls": Array [
+                Array [],
+              ],
+              "results": Array [
+                Object {
+                  "type": "return",
+                  "value": undefined,
+                },
+              ],
+            }
+          }
+          style={
+            Array [
+              Object {
+                "color": "rgb(227, 131, 4)",
+                "fontSize": 35,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 17,
+            }
+          }
+        >
+          My Closet
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "right": -110,
+          }
+        }
+      >
+        <View
+          collapsable={false}
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+          >
+            <View
+              accessibilityLabel="Add to closet button"
+              accessible={true}
+              ctx={
+                Object {
+                  "menuActions": Object {
+                    "_getOpenedMenu": [Function],
+                    "_notify": [Function],
+                    "closeMenu": [Function],
+                    "isMenuOpen": [Function],
+                    "openMenu": [Function],
+                    "toggleMenu": [Function],
+                  },
+                  "menuRegistry": Object {
+                    "getAll": [Function],
+                    "getMenu": [Function],
+                    "setOptionsCustomStyles": [Function],
+                    "subscribe": [Function],
+                    "unsubscribe": [Function],
+                    "updateLayoutInfo": [Function],
+                  },
+                }
+              }
+              style={
+                Array [
+                  undefined,
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "rgb(227, 131, 4)",
+                      "fontSize": 35,
+                    },
+                    undefined,
+                    Object {
+                      "fontFamily": "Feather",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;

@@ -1,0 +1,539 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid test suite: If closet is empty, no grid tiles are created. 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    accessible={true}
+    data={Array []}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View />
+  </RCTScrollView>
+  <Modal
+    hardwareAccelerated={false}
+    transparent={true}
+    visible={false}
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "flex": 3,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#1F1F1F",
+          "borderRadius": 30,
+          "flex": 1,
+          "flexDirection": "row",
+          "marginHorizontal": 20,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#141414",
+            "borderRadius": 15,
+            "flex": 1,
+            "height": 50,
+            "justifyContent": "center",
+            "marginHorizontal": 20,
+            "opacity": 1,
+            "width": 1,
+          }
+        }
+      >
+        <View>
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 18,
+              }
+            }
+          >
+            Undo
+          </Text>
+        </View>
+      </View>
+      <View
+        accessibilityLabel="Delete button"
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "darkred",
+            "borderRadius": 15,
+            "flex": 1,
+            "height": 50,
+            "justifyContent": "center",
+            "marginHorizontal": 20,
+            "opacity": 1,
+            "width": 1,
+          }
+        }
+      >
+        <View>
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 18,
+              }
+            }
+          >
+            Delete
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "flex": 3,
+        }
+      }
+    />
+  </Modal>
+</View>
+`;
+
+exports[`Grid test suite: If closet is not empty, then grid tiles are created. 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    accessible={true}
+    data={
+      Array [
+        Object {
+          "colorTag": 1,
+          "key": 1,
+          "photo": "base64",
+          "typeTag": 1,
+        },
+        Object {
+          "colorTag": 1,
+          "key": 2,
+          "photo": "base64",
+          "typeTag": 1,
+        },
+        Object {
+          "colorTag": 1,
+          "key": 3,
+          "photo": "base64",
+          "typeTag": 2,
+        },
+        Object {
+          "colorTag": 1,
+          "key": 4,
+          "photo": "base64",
+          "typeTag": 2,
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityLabel="Closet item"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+          >
+            <View
+              style={
+                Object {
+                  "flex": 0.3333333333333333,
+                  "height": 250,
+                  "margin": 1,
+                  "width": 250,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "data:image/png;base64,base64",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 250,
+                    "width": 250,
+                  }
+                }
+              />
+            </View>
+          </View>
+          <View
+            accessibilityLabel="Closet item"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+          >
+            <View
+              style={
+                Object {
+                  "flex": 0.3333333333333333,
+                  "height": 250,
+                  "margin": 1,
+                  "width": 250,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "data:image/png;base64,base64",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 250,
+                    "width": 250,
+                  }
+                }
+              />
+            </View>
+          </View>
+          <View
+            accessibilityLabel="Closet item"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+          >
+            <View
+              style={
+                Object {
+                  "flex": 0.3333333333333333,
+                  "height": 250,
+                  "margin": 1,
+                  "width": 250,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "data:image/png;base64,base64",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 250,
+                    "width": 250,
+                  }
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityLabel="Closet item"
+            accessible={true}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+          >
+            <View
+              style={
+                Object {
+                  "flex": 0.3333333333333333,
+                  "height": 250,
+                  "margin": 1,
+                  "width": 250,
+                }
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "data:image/png;base64,base64",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 250,
+                    "width": 250,
+                  }
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <Modal
+    hardwareAccelerated={false}
+    transparent={true}
+    visible={false}
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "flex": 3,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#1F1F1F",
+          "borderRadius": 30,
+          "flex": 1,
+          "flexDirection": "row",
+          "marginHorizontal": 20,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#141414",
+            "borderRadius": 15,
+            "flex": 1,
+            "height": 50,
+            "justifyContent": "center",
+            "marginHorizontal": 20,
+            "opacity": 1,
+            "width": 1,
+          }
+        }
+      >
+        <View>
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 18,
+              }
+            }
+          >
+            Undo
+          </Text>
+        </View>
+      </View>
+      <View
+        accessibilityLabel="Delete button"
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "darkred",
+            "borderRadius": 15,
+            "flex": 1,
+            "height": 50,
+            "justifyContent": "center",
+            "marginHorizontal": 20,
+            "opacity": 1,
+            "width": 1,
+          }
+        }
+      >
+        <View>
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 18,
+              }
+            }
+          >
+            Delete
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "flex": 3,
+        }
+      }
+    />
+  </Modal>
+</View>
+`;
