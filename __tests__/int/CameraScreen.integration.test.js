@@ -1,5 +1,5 @@
 import React from 'react';
-import CameraScreen from './CameraScreen';
+import CameraScreen from '../../src/screens/Camera/CameraScreen';
 import {fireEvent, render} from 'react-native-testing-library';
 
 describe('CameraScreen test suite:', () => {

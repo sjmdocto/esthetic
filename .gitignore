@@ -331,3 +331,6 @@ ios/Pods
 
 # Android memory profiler files
 *.hproif
+
+# Test-Coverage files
+/test-coverage

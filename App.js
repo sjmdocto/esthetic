@@ -3,14 +3,38 @@ import ClosetScreen from './src/screens/Closet/ClosetScreen';
 // import {testCloset} from './src/components/Grid/testCloset';
 // import {smallTestCloset} from './src/components/Grid/smallTestCloset';
 import CameraScreen from './src/screens/Camera/CameraScreen';
+import ImportScreen from './src/screens/Import/ImportScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import getSavedCloset from './src/util/getSavedCloset';
 import ClosetContext from './src/util/ClosetContext';
+import getStorageKeys from './src/util/getStorageKeys';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const Stack = createStackNavigator();
 
+
+
 const App = () => {
+  const clearAppData = async () => {
+    try {
+      const keys = await AsyncStorage.getAllKeys();
+      await AsyncStorage.multiRemove(keys);
+    } catch (error) {
+      console.error('Error clearing app data.');
+    }
+  };
+
+  // const removeAll = async () => {
+  //   const keys = getStorageKeys();
+  //   console.log(Array.isArray(keys));
+  //   try {
+  //     await AsyncStorage.multiRemove(keys);
+  //   } catch (e) {
+  //     console.warn('removeAll: ' + e);
+  //   }
+  // };
+
   // Initialize context
   // --closet
   const initialCloset = getSavedCloset();
@@ -31,6 +55,11 @@ const App = () => {
           <Stack.Screen
             name={'Camera'}
             component={CameraScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name={'Import'}
+            component={ImportScreen}
             options={{headerShown: false}}
           />
         </Stack.Navigator>

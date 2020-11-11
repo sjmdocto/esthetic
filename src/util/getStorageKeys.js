@@ -9,9 +9,10 @@ const getStorageKeys = async () => {
   let keys = [];
   try {
     keys = await AsyncStorage.getAllKeys();
+    // console.log('getStorageKeys: ' + keys);
     return keys;
   } catch (e) {
-    console.log(e);
+    console.warn(e);
   }
 };
 

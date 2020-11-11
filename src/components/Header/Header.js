@@ -20,6 +20,7 @@ import theme from '../../styles/theme.style';
  * @param {*} props
  * @param {func} props.openFilterMenu
  * @param {func} props.openCamera
+ * @param {func} props.onImport
  */
 const Header = (props) => {
   return (
@@ -50,7 +51,7 @@ const Header = (props) => {
         </MenuTrigger>
         <MenuOptions customStyles={optionsStyles}>
           <MenuOption value={1} onSelect={props.openCamera} text="Take photo" />
-          <MenuOption value={2} text="Import..." />
+          <MenuOption value={2} onSelect={props.onImport} text="Import..." />
         </MenuOptions>
       </Menu>
     </View>
