@@ -7,20 +7,10 @@ import getSavedCloset from './src/util/getSavedCloset';
 import ClosetContext from './src/util/ClosetContext';
 import LoadingScreen from './src/screens/Loading/LoadingScreen';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-//import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Stack = createStackNavigator();
 
 const App = () => {
-  // const clearAppData = async () => {
-  //   try {
-  //     const keys = await AsyncStorage.getAllKeys();
-  //     await AsyncStorage.multiRemove(keys);
-  //   } catch (error) {
-  //     console.error('Error clearing app data.');
-  //   }
-  // };
-
   const [closet, setCloset] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
