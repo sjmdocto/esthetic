@@ -20,7 +20,7 @@ exports[`FilterMenu test suite: FilterMenu renders properly. 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "rgba(227, 131, 4, 0.8)",
+          "backgroundColor": "rgba(227, 131, 4, 0.96)",
           "color": "white",
           "flex": 9,
           "paddingBottom": 10,

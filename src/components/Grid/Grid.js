@@ -40,19 +40,37 @@ const Grid = (props) => {
     setDetailVisible(false);
   };
 
-  const renderItem = ({item}) => (
-    <Pressable
-      onLongPress={onSelect.bind(this, item.key)}
-      accessible={true}
-      accessibilityLabel={'Closet item'}>
-      <View style={styles.item}>
-        <Image
-          source={{uri: `data:image/png;base64,${item.photo}`}}
-          style={styles.photo}
-        />
-      </View>
-    </Pressable>
-  );
+  // const dataHandler = async (closet, filterColor, filterType) => {
+  //   let closetWithPhotos = [];
+  //   try {
+  //     closetWithPhotos = await closet.map(connectPhotoToItem);
+  //   } catch (e) {
+  //     console.warn(e);
+  //   }
+  //   console.log('dataHandler.closet: ' + closetWithPhotos);
+  //   const filteredCloset = filterCloset(
+  //     closetWithPhotos,
+  //     filterColor,
+  //     filterType,
+  //   );
+  //   return filteredCloset;
+  // };
+
+  const renderItem = ({item}) => {
+    return (
+      <Pressable
+        onLongPress={onSelect.bind(this, item.key)}
+        accessible={true}
+        accessibilityLabel={'Closet item'}>
+        <View style={styles.item}>
+          <Image
+            source={{uri: `data:image/png;base64,${item.photo}`}}
+            style={styles.photo}
+          />
+        </View>
+      </Pressable>
+    );
+  };
 
   return (
     <FilterContext.Provider>

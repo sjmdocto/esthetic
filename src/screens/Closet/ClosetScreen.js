@@ -1,5 +1,5 @@
 import React, {useState, useContext, useEffect} from 'react';
-import {View, Platform} from 'react-native';
+import {Alert, Platform} from 'react-native';
 import Header from '../../components/Header/Header';
 import Grid from '../../components/Grid/Grid';
 import FilterMenu from '../../components/FilterMenu/FilterMenu';
@@ -71,38 +71,38 @@ const ClosetScreen = ({navigation}) => {
       if (Platform.OS !== 'web') {
         const {status} = await ImagePicker.requestCameraRollPermissionsAsync();
         if (status !== 'granted') {
-          console.warn(
+          Alert.alert(
+            'Permissions Error',
             'Sorry, we need camera roll permissions to make this work!',
+            [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+            {cancelable: false},
           );
         }
       }
     })();
   }, []);
 
-  const saveHandler = (colorTag, typeTag) => {
+  const saveHandler = async (colorTag, typeTag) => {
     // First, create clothingItem
-    (async () => {
-      const clothingItem = makeClothingItem(colorTag, typeTag);
-      let clothingItemWithPhoto;
-      try {
-        // Then write the photo to disk
-        await writePhotoToDisk(clothingItem, photoBase64);
-        // Then, connect photo to clothingItem
-        clothingItemWithPhoto = await connectPhotoToItem(clothingItem);
-        // Then, add clothingItem to closet state
-        const newCloset = addClothingItem(closet, clothingItemWithPhoto);
-        setCloset(newCloset);
-        // Next add clothingItem to Storage
-        // NOTE: NOT clothingItemWithPhoto bc photo variable takes up a lot of data
-        await addToStorage(clothingItem);
-        // Then, Hide the save menu
-        setSaveVisible(false);
-      } catch (e) {}
-    })();
+    const clothingItem = makeClothingItem(colorTag, typeTag);
+    let clothingItemWithPhoto;
+    try {
+      // Then write the photo to disk
+      await writePhotoToDisk(clothingItem, photoBase64);
+      // Then, connect photo to clothingItem
+      clothingItemWithPhoto = await connectPhotoToItem(clothingItem);
+      // Then, add clothingItem to closet state
+      const newCloset = addClothingItem(closet, clothingItemWithPhoto);
+      setCloset(newCloset);
+      // Next add clothingItem to Storage
+      // NOTE: NOT clothingItemWithPhoto bc photo variable takes up a lot of data
+      await addToStorage(clothingItem);
+      // Then, Hide the save menu
+      setSaveVisible(false);
+    } catch (e) {}
   };
 
   const discardHandler = () => {
-    //cameraRef.current.resumePreview();
     setSaveVisible(false);
   };
 

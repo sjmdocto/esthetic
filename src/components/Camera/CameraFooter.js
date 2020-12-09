@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import {styles} from './Camera.style';
+import {styles} from './CameraFooter.style';
 import theme from '../../styles/theme.style';
 
 /**
@@ -11,7 +11,7 @@ import theme from '../../styles/theme.style';
  */
 const CameraFooter = (props) => {
   return (
-    <View style={styles.bottomContainer}>
+    <View style={styles.footerContainer}>
       <View style={styles.backButton}>
         <Icon
           name="arrow-left"

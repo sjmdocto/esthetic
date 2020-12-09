@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     borderBottomColor: 'black',
     height: '7%',
     flex: 0,
-    backgroundColor: theme.EST_GREY,
+    backgroundColor: theme.EST_LIGHT_GREY,
   },
   menuButton: {
     left: -110,
@@ -37,18 +37,4 @@ export const optionsStyles = {
     padding: 1,
   },
   optionsWrapper: {},
-};
-
-export const triggerStyles = {
-  // DOESNT WORK ON ANDROID
-  /*
-    triggerOuterWrapper: {
-        bottom: -30, // eqaul to triggerWrapper.bottom * -1
-        right: -50,
-    },
-    triggerWrapper: {
-        bottom: 30, // equal to triggerOuterWrapper.bottom * -1
-        right: 50,
-    },
-    */
 };

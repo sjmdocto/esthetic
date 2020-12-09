@@ -4,6 +4,7 @@ exports[`Grid test suite: If closet is empty, no grid tiles are created. 1`] = `
 <View
   style={
     Object {
+      "backgroundColor": "#E5E5E5",
       "flex": 1,
     }
   }
@@ -168,6 +169,7 @@ exports[`Grid test suite: If closet is not empty, then grid tiles are created. 1
 <View
   style={
     Object {
+      "backgroundColor": "#E5E5E5",
       "flex": 1,
     }
   }

@@ -1,5 +1,4 @@
-import React, {useState, useRef, useContext, useEffect} from 'react';
-import {View} from 'react-native';
+import React, {useState, useRef, useContext} from 'react';
 import {RNCamera} from 'react-native-camera';
 import CameraHeader from '../../components/Camera/CameraHeader';
 import CameraFooter from '../../components/Camera/CameraFooter';
@@ -27,14 +26,6 @@ const CameraScreen = ({navigation}) => {
   const [saveVisible, setSaveVisible] = useState(false);
 
   const {closet, setCloset} = useContext(ClosetContext);
-
-  // useEffect(() => {
-  //   if (saveVisible === true) {
-  //     cameraRef.current.pausePreview();
-  //   } else if (cameraRef !== null) {
-  //     cameraRef.current.resumePreview();
-  //   }
-  // }, [saveVisible, cameraRef]);
 
   /**
    * Handler for pressing the shutter button.
@@ -110,7 +101,6 @@ const CameraScreen = ({navigation}) => {
         closeCamera={() => navigation.navigate('Closet')}
         takePicture={shutterHandler}
       />
-      {/* <View style={styles.bottomBuffer} /> */}
     </SafeAreaView>
   );
 };

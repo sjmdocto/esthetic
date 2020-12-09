@@ -5,7 +5,7 @@ exports[`Camera test suite: Footer renders properly 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "black",
+      "backgroundColor": "#1F1F1F",
       "flex": 1,
       "flexDirection": "row",
       "justifyContent": "center",
@@ -82,7 +82,7 @@ exports[`Camera test suite: Header renders properly 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#E5E5E5",
+      "backgroundColor": "#F2F2F2",
       "flex": 1,
       "flexDirection": "row",
       "justifyContent": "center",

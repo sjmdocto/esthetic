@@ -1,9 +1,11 @@
 import common from '../../styles/common.style';
 import {StyleSheet} from 'react-native';
+import theme from '../../styles/theme.style';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: theme.EST_GREY, // TODO: add this to theme
   },
   item: {
     margin: 1,
@@ -26,7 +28,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 20,
     // marginVertical: SCREENHEIGHT / 4,
-    backgroundColor: '#1F1F1F',
+    backgroundColor: theme.EST_LIGHT_BLACK,
     borderRadius: 30,
     //bottom: SCREENHEIGHT / 5,
     // borderWidth: 1,
@@ -38,7 +40,7 @@ export const styles = StyleSheet.create({
     // marginVertical: 5,
     height: 50,
     width: 1,
-    backgroundColor: '#141414',
+    backgroundColor: theme.EST_BLACK,
     borderRadius: 15,
     alignItems: 'center',
     justifyContent: 'center',

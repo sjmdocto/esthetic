@@ -25,7 +25,7 @@ exports[`Header test suite Header renders properly 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#E5E5E5",
+          "backgroundColor": "#F2F2F2",
           "borderBottomColor": "black",
           "borderBottomWidth": 1,
           "flex": 0,

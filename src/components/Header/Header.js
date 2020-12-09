@@ -40,7 +40,6 @@ const Header = (props) => {
       </View>
       <Menu style={styles.addButton}>
         <MenuTrigger
-          customStyles={triggerStyles}
           accessible={true}
           accessibilityLabel={'Add to closet button'}>
           <Icon

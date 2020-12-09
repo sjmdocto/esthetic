@@ -1,7 +1,10 @@
 export default {
   EST_ORANGE: 'rgb(227, 131, 4)',
-  EST_ORANGE_TRANSP: 'rgba(227, 131, 4, 0.8)',
+  EST_ORANGE_TRANSP: 'rgba(227, 131, 4, 0.96)',
   EST_GREY: '#E5E5E5',
+  EST_LIGHT_GREY: '#F2F2F2',
+  EST_BLACK: '#141414',
+  EST_LIGHT_BLACK: '#1F1F1F',
 
   // FONT_SIZE_SMALL: 12,
   // FONT_SIZE_MEDIUM: 14,
