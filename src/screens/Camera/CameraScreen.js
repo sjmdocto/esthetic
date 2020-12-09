@@ -1,4 +1,4 @@
-import React, {useState, useRef, useContext} from 'react';
+import React, {useState, useRef, useContext, useEffect} from 'react';
 import {View} from 'react-native';
 import {RNCamera} from 'react-native-camera';
 import CameraHeader from '../../components/Camera/CameraHeader';
@@ -8,9 +8,11 @@ import SavePhotoMenu from '../../components/SavePhotoMenu/SavePhotoMenu';
 import makeClothingItem from '../../util/makeClothingItem';
 import addClothingItem from '../../util/addClothingItem';
 import addToStorage from '../../util/addToStorage';
-
 import ClosetContext from '../../util/ClosetContext';
-import {styles} from '../../components/Camera/Camera.style';
+import {styles} from './CameraScreen.style';
+import writePhotoToDisk from '../../util/writePhotoToDisk';
+import connectPhotoToItem from '../../util/connectPhotoToItem';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 /**
  * @param {*} navigation
@@ -26,6 +28,14 @@ const CameraScreen = ({navigation}) => {
 
   const {closet, setCloset} = useContext(ClosetContext);
 
+  // useEffect(() => {
+  //   if (saveVisible === true) {
+  //     cameraRef.current.pausePreview();
+  //   } else if (cameraRef !== null) {
+  //     cameraRef.current.resumePreview();
+  //   }
+  // }, [saveVisible, cameraRef]);
+
   /**
    * Handler for pressing the shutter button.
    * Call to takePicture() requires cameraRef
@@ -34,7 +44,7 @@ const CameraScreen = ({navigation}) => {
   const shutterHandler = async () => {
     let photo = await takePicture(cameraRef);
     setPhotoBase64(photo);
-    cameraRef.current.pausePreview();
+    // cameraRef.current.pausePreview();
     setSaveVisible(true);
   };
 
@@ -55,21 +65,28 @@ const CameraScreen = ({navigation}) => {
    * @param colorTag - selected colorTag for the clothing item
    * @param typeTag - selected typeTag for the clothing item
    */
-  const saveHandler = (colorTag, typeTag) => {
+  const saveHandler = async (colorTag, typeTag) => {
     // First, create clothingItem
-    const clothingItem = makeClothingItem(photoBase64, colorTag, typeTag);
-    // Then, add clothingItem to closet state
-    const newCloset = addClothingItem(closet, clothingItem);
-    setCloset(newCloset);
-    // Next add clothingItem to Storage
-    addToStorage(clothingItem);
-    // Then, Hide the save menu
-    setSaveVisible(false);
-    // Finally, resume camera preview
-    cameraRef.current.resumePreview();
+    const clothingItem = makeClothingItem(colorTag, typeTag);
+    let clothingItemWithPhoto;
+    try {
+      // Then write the photo to disk
+      await writePhotoToDisk(clothingItem, photoBase64);
+      // Then, connect photo to clothingItem
+      clothingItemWithPhoto = await connectPhotoToItem(clothingItem);
+      // Then, add clothingItem to closet state
+      const newCloset = addClothingItem(closet, clothingItemWithPhoto);
+      setCloset(newCloset);
+      // Next add clothingItem to Storage
+      addToStorage(clothingItem);
+      // Then, Hide the save menu
+      setSaveVisible(false);
+      // Finally, resume camera preview
+      cameraRef.current.resumePreview();
+    } catch (e) {}
   };
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <SavePhotoMenu
         saveVisibility={saveVisible}
         onSave={saveHandler}
@@ -94,7 +111,7 @@ const CameraScreen = ({navigation}) => {
         takePicture={shutterHandler}
       />
       {/* <View style={styles.bottomBuffer} /> */}
-    </View>
+    </SafeAreaView>
   );
 };
 

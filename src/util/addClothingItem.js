@@ -6,10 +6,9 @@
 const addClothingItem = (currentCloset, clothingItem) => {
   let oldCloset = currentCloset; // array
   let newCloset; // array
-  /* if oldWardrobe is empty,
-   * then let newWardrobe be a new array with just the clothingItem
-   */
-  if (oldCloset === undefined) {
+
+  // if (oldCloset is empty)
+  if (oldCloset.length === 0) {
     newCloset = [clothingItem];
   } else {
     // else, create a new array containing oldWardrobe plus new clothingItem

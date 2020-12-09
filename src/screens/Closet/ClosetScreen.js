@@ -12,6 +12,10 @@ import SavePhotoMenu from '../../components/SavePhotoMenu/SavePhotoMenu';
 import makeClothingItem from '../../util/makeClothingItem';
 import addClothingItem from '../../util/addClothingItem';
 import addToStorage from '../../util/addToStorage';
+import writePhotoToDisk from '../../util/writePhotoToDisk';
+import connectPhotoToItem from '../../util/connectPhotoToItem';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import theme from '../../styles/theme.style';
 
 /**
  * @param {*} props
@@ -56,8 +60,6 @@ const ClosetScreen = ({navigation}) => {
       base64: true,
     });
 
-    //console.log(result);
-
     if (!result.cancelled) {
       setPhotoBase64(result.base64);
       setSaveVisible(true);
@@ -69,7 +71,9 @@ const ClosetScreen = ({navigation}) => {
       if (Platform.OS !== 'web') {
         const {status} = await ImagePicker.requestCameraRollPermissionsAsync();
         if (status !== 'granted') {
-          alert('Sorry, we need camera roll permissions to make this work!');
+          console.warn(
+            'Sorry, we need camera roll permissions to make this work!',
+          );
         }
       }
     })();
@@ -77,20 +81,24 @@ const ClosetScreen = ({navigation}) => {
 
   const saveHandler = (colorTag, typeTag) => {
     // First, create clothingItem
-    const clothingItem = makeClothingItem(photoBase64, colorTag, typeTag);
-    // Then, add clothingItem to closet state
-    const newCloset = addClothingItem(closet, clothingItem);
-    setCloset(newCloset);
-    // Next add clothingItem to Storage
-    addToStorage(clothingItem);
-    // Then, Hide the save menu
-    setSaveVisible(false);
-
-    // Finally, resume importing
-    // pickImage();
-
-    // Finally, resume camera preview
-    //cameraRef.current.resumePreview();
+    (async () => {
+      const clothingItem = makeClothingItem(colorTag, typeTag);
+      let clothingItemWithPhoto;
+      try {
+        // Then write the photo to disk
+        await writePhotoToDisk(clothingItem, photoBase64);
+        // Then, connect photo to clothingItem
+        clothingItemWithPhoto = await connectPhotoToItem(clothingItem);
+        // Then, add clothingItem to closet state
+        const newCloset = addClothingItem(closet, clothingItemWithPhoto);
+        setCloset(newCloset);
+        // Next add clothingItem to Storage
+        // NOTE: NOT clothingItemWithPhoto bc photo variable takes up a lot of data
+        await addToStorage(clothingItem);
+        // Then, Hide the save menu
+        setSaveVisible(false);
+      } catch (e) {}
+    })();
   };
 
   const discardHandler = () => {
@@ -100,7 +108,7 @@ const ClosetScreen = ({navigation}) => {
 
   return (
     <MenuProvider>
-      <View style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: theme.EST_LIGHT_GREY}}>
         <SavePhotoMenu
           saveVisibility={saveVisible}
           onSave={saveHandler}
@@ -125,7 +133,7 @@ const ClosetScreen = ({navigation}) => {
           filterType={filterType}
           onDelete={onDelete}
         />
-      </View>
+      </SafeAreaView>
     </MenuProvider>
   );
 };

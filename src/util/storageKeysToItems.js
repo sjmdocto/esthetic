@@ -1,29 +1,27 @@
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 /**
  * Helper function for getSavedCloset.
  *
  * Uses keys to get the values of each AsyncStorage clothingItem object
  * @param {array} keys - keys for each clothingItem object
- * @return {array} - Array of all the clothingItem objects
+ * @return {Promise<Array>} - Array of all the clothingItem objects
  */
-const storageKeysToItems = (keys) => {
-  let i = 0;
-  let items = [];
-
-  const getData = async () => {
-    try {
+const storageKeysToItems = async (keys) => {
+  try {
+    let items = [];
+    for (let i = 0; i < keys.length; i++) {
       const jsonValue = await AsyncStorage.getItem(keys[i]);
-      return jsonValue != null ? JSON.parse(jsonValue) : null;
-    } catch (e) {
-      console.warn(e);
+      let data;
+      if (jsonValue != null) {
+        data = JSON.parse(jsonValue);
+      } else {
+        data = null;
+      }
+      items.push(data);
     }
-  };
-
-  for (i = 0; i < keys.length; i++) {
-    items[i] = getData();
-  }
-  return items;
+    return items;
+  } catch (e) {}
 };
 
 export default storageKeysToItems;
