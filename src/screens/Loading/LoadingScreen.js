@@ -1,10 +1,16 @@
 import React from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/Feather';
+import {ICON_SIZE, styles} from './LoadingScreen.style';
+import theme from '../../styles/theme.style';
 
 const LoadingScreen = ({navigation}) => {
   return (
-    <SafeAreaView style={{justifyContent: 'center'}}>
-      <Text>Loading!</Text>
+    <SafeAreaView
+      style={styles.container}
+      accessible={true}
+      accessibilityLabel={'Loading Screen'}>
+      <Icon name="loader" size={ICON_SIZE} color={theme.EST_ORANGE} />
     </SafeAreaView>
   );
 };

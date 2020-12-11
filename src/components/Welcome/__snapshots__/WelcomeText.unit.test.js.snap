@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WelcomeText test suite: If visible prop is equal to false, WelcomeText is NOT rendered. 1`] = `null`;
+
+exports[`WelcomeText test suite: If visible prop is equal to true, WelcomeText is rendered. 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#E5E5E5",
+      "flex": 0,
+      "height": 667,
+      "justifyContent": "center",
+      "paddingHorizontal": 75,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "fontSize": 14,
+        "fontStyle": "italic",
+        "justifyContent": "center",
+        "textAlign": "center",
+      }
+    }
+  >
+    Welcome to Esthetic, your new virtual closet.
+
+    To get started, just click on the plus in the top right to add your clothes!
+  </Text>
+</View>
+`;
