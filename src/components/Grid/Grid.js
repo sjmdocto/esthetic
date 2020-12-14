@@ -15,6 +15,7 @@ import {styles} from './Grid.style';
 
 /**
  * Photo Grid for ClosetScreen
+ * @function Grid
  * @param {*} props
  * @param {array} props.closet
  * @param {number} props.filterColor
@@ -26,36 +27,28 @@ const Grid = (props) => {
   const [detailVisible, setDetailVisible] = useState(false);
   const [selectionKey, setSelectionKey] = useState('');
 
+  /**
+   * @function onSelect
+   * @param {number} key
+   */
   const onSelect = (key) => {
     setSelectionKey(key);
     setDetailVisible(true);
   };
-
+  /**
+   * @function deleteHandler
+   * @returns {void}
+   */
   const deleteHandler = () => {
-    // 1) Delete item
-    //    a) Delete from wardrobe
-    //    b) Delete from AsyncStorage
     props.onDelete(selectionKey);
-    // 2) Hide detail view
     setDetailVisible(false);
   };
 
-  // const dataHandler = async (closet, filterColor, filterType) => {
-  //   let closetWithPhotos = [];
-  //   try {
-  //     closetWithPhotos = await closet.map(connectPhotoToItem);
-  //   } catch (e) {
-  //     console.warn(e);
-  //   }
-  //   console.log('dataHandler.closet: ' + closetWithPhotos);
-  //   const filteredCloset = filterCloset(
-  //     closetWithPhotos,
-  //     filterColor,
-  //     filterType,
-  //   );
-  //   return filteredCloset;
-  // };
-
+  /**
+   * FlatList custom renderItem function
+   * @function renderItem
+   * @param {{object}} item
+   */
   const renderItem = ({item}) => {
     return (
       <Pressable

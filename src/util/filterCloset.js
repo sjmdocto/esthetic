@@ -1,5 +1,6 @@
 /**
  * Filters closet by the currently selected color and type filters
+ * @function filterCloset
  * @param {closet}
  * @param {filterColor}
  * @param {filterType}
@@ -7,7 +8,7 @@
  */
 const filterCloset = (closet, filterColor, filterType) => {
   // 0) closet is empty
-  if (closet === undefined) {
+  if (!(closet.length > 0) || !Array.isArray(closet)) {
     // return {photo: null, colorTag: null, typeTag: null};
     return [];
   }

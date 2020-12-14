@@ -15,57 +15,53 @@ import addToStorage from '../../util/addToStorage';
 import writePhotoToDisk from '../../util/writePhotoToDisk';
 import connectPhotoToItem from '../../util/connectPhotoToItem';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import theme from '../../styles/theme.style';
+import WelcomeText from '../../components/Welcome/WelcomeText';
+import {styles} from './ClosetScreen.style';
 
 /**
- * @param {*} props
- * @param {array} props.closet
- *
- * @param {number} props.filterColor
- * @param {function} props.setFilterColor
- * @param {number} props.filterType
- * @param {function} props.setFilterType
+ * @function ClosetScreen
+ * @param {} navigation
  */
 
 const ClosetScreen = ({navigation}) => {
+  /* CODE FOR MENU */
   const [menuVisible, setMenuVisible] = useState(false);
-  // Wrapper for setMenuVisible(true)
+  const [filterColor, setFilterColor] = useState(0);
+  const [filterType, setFilterType] = useState(0);
+  /** Wrapper for setMenuVisible(true)
+   * @function openFilterMenu
+   * @returns {void}
+   */
   const openFilterMenu = () => {
     setMenuVisible(true);
   };
-  // Wrapper for setMenuVisible(false).
+  /** Wrapper for setMenuVisible(false)
+   * @function closeFilterMenu
+   * @returns {void}
+   */
   const closeFilterMenu = () => {
     setMenuVisible(false);
   };
 
-  const [filterColor, setFilterColor] = useState(0);
-  const [filterType, setFilterType] = useState(0);
+  /* CODE FOR CLOSET */
   const {closet, setCloset} = useContext(ClosetContext);
+  const [photoBase64, setPhotoBase64] = useState('');
+  const [saveVisible, setSaveVisible] = useState(false);
 
+  /**
+   * @function onDelete
+   * @param {string} key
+   * @returns {void}
+   */
   const onDelete = (key) => {
     let updatedCloset = deleteClothingItem(key, closet);
     setCloset(updatedCloset);
     deleteFromStorage(key);
   };
 
-  const [photoBase64, setPhotoBase64] = useState('');
-  const [saveVisible, setSaveVisible] = useState(false);
+  /* CODE FOR IMPORT */
 
-  const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [1, 1],
-      quality: 0,
-      base64: true,
-    });
-
-    if (!result.cancelled) {
-      setPhotoBase64(result.base64);
-      setSaveVisible(true);
-    }
-  };
-
+  // Ensure that camera roll access has been granted
   useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
@@ -82,6 +78,34 @@ const ClosetScreen = ({navigation}) => {
     })();
   }, []);
 
+  /**
+   * Function to choose image from photo gallery
+   * @async
+   * @function pickImage
+   * @returns {Promise<void>}
+   */
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [1, 1],
+      quality: 0,
+      base64: true,
+    });
+
+    if (!result.cancelled) {
+      setPhotoBase64(result.base64);
+      setSaveVisible(true);
+    }
+  };
+
+  /**
+   * @async
+   * @function saveHandler
+   * @param {number} colorTag
+   * @param {number} typeTag
+   * @returns {Promise<void>}
+   */
   const saveHandler = async (colorTag, typeTag) => {
     // First, create clothingItem
     const clothingItem = makeClothingItem(colorTag, typeTag);
@@ -102,13 +126,30 @@ const ClosetScreen = ({navigation}) => {
     } catch (e) {}
   };
 
+  /**
+   * @function discardHandler
+   * @returns {void}
+   */
   const discardHandler = () => {
     setSaveVisible(false);
   };
 
+  /* CODE FOR WELCOME TEXT */
+  const [isClosetEmpty, setIsClosetEmpty] = useState(true);
+  /* if closet is empty, WelcomeText is shown.
+   * if closet is not empty, WelcomeText isn't shown.
+   */
+  useEffect(() => {
+    if (closet.length !== 0) {
+      setIsClosetEmpty(false);
+    } else if (closet.length === 0) {
+      setIsClosetEmpty(true);
+    }
+  }, [closet]);
+
   return (
     <MenuProvider>
-      <SafeAreaView style={{flex: 1, backgroundColor: theme.EST_LIGHT_GREY}}>
+      <SafeAreaView style={styles.container}>
         <SavePhotoMenu
           saveVisibility={saveVisible}
           onSave={saveHandler}
@@ -133,6 +174,7 @@ const ClosetScreen = ({navigation}) => {
           filterType={filterType}
           onDelete={onDelete}
         />
+        <WelcomeText visible={isClosetEmpty} />
       </SafeAreaView>
     </MenuProvider>
   );

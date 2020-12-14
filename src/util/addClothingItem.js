@@ -1,4 +1,5 @@
 /** Add clothingItem to closet
+ * @function addClothingItem
  * @param currentCloset
  * @param clothingItem
  * @return {array}
@@ -11,7 +12,7 @@ const addClothingItem = (currentCloset, clothingItem) => {
   if (oldCloset.length === 0) {
     newCloset = [clothingItem];
   } else {
-    // else, create a new array containing oldWardrobe plus new clothingItem
+    // else, create a new array containing oldCloset plus new clothingItem
     newCloset = [clothingItem, ...oldCloset];
   }
   return newCloset;

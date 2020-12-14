@@ -1,4 +1,3 @@
-// Add dresses, and other types we're missing?
 export default {
   none: 0,
   outerwear: 1,

@@ -24,20 +24,19 @@ const typeTag = {
 };
 
 /**
- * Popup menu for selecting type tag, called by SavePhoto.js
+ * Popup menu for selecting type tag, called by SavePhotoMenu
+ * @function TypeTagMenu
  * @param {*} props
- * @param {func} setTypeTag
+ * @param {func} props.setTypeTag
  */
 
 const TypeTagMenu = (props) => {
-  // state variable for currently selected clothing type from menu
   const [clothingSelect, setClothingSelect] = useState(typeTag.outerwear);
-
   /**
    * Helper function for clothingSelectHandler
-   *
-   * Set the type tag in SavePhoto
+   * @function tagToKey
    * @param {string} tag
+   * @returns {void}
    */
   const tagToKey = (tag) => {
     switch (tag) {
@@ -76,10 +75,11 @@ const TypeTagMenu = (props) => {
         break;
     }
   };
-
   /**
    * Handler for selecting a type tag from the menu
+   * @function clothingSelectHandler
    * @param {string} tag
+   * @returns {void}
    */
   const clothingSelectHandler = (clothing) => {
     setClothingSelect(clothing);

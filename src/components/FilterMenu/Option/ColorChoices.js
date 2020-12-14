@@ -4,6 +4,7 @@ import ColorOption from './ColorOption';
 import colorKey from '../../../util/colorKey';
 
 /**
+ * @function ColorChoices
  * @param {*} props
  * @param {object} props.style
  * @param {number} props.currentColor

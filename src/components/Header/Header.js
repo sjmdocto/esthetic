@@ -7,16 +7,12 @@ import {
   MenuOption,
   MenuTrigger,
 } from 'react-native-popup-menu';
-import {
-  HEADER_BUTTON_SIZE,
-  styles,
-  optionsStyles,
-  triggerStyles,
-} from './Header.style';
+import {HEADER_BUTTON_SIZE, styles, optionsStyles} from './Header.style';
 import theme from '../../styles/theme.style';
 
 /**
- * Contains Menu button, title, Add button, and TakePhoto screen modal
+ * Contains Menu button, title, and Add button
+ * @function Header
  * @param {*} props
  * @param {func} props.openFilterMenu
  * @param {func} props.openCamera

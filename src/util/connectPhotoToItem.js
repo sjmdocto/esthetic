@@ -1,5 +1,11 @@
 import * as FileSystem from 'expo-file-system';
 
+/**
+ * @async
+ * @function connectPhotoToItem
+ * @param {object} clothingItem
+ * @returns {Promise<object>}
+ */
 const connectPhotoToItem = async (clothingItem) => {
   const fileUri = FileSystem.documentDirectory + clothingItem.key + '.png';
   let photo;

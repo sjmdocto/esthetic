@@ -5,6 +5,7 @@ import {styles} from './CameraFooter.style';
 import theme from '../../styles/theme.style';
 
 /**
+ * @function CameraFooter
  * @param {*} props
  * @param {function} props.closeCamera
  * @param {function} props.takePicture

@@ -2,6 +2,11 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {styles} from './WelcomeText.style';
 
+/**
+ * @function WelcomeText
+ * @param {*} props
+ * @param {boolean} props.visible
+ */
 const WelcomeText = (props) => {
   if (!props.visible) {
     return null;

@@ -4,6 +4,10 @@ import Icon from 'react-native-vector-icons/Feather';
 import {ICON_SIZE, styles} from './LoadingScreen.style';
 import theme from '../../styles/theme.style';
 
+/**
+ * @function LoadingScreen
+ * @param {} navigation
+ */
 const LoadingScreen = ({navigation}) => {
   return (
     <SafeAreaView

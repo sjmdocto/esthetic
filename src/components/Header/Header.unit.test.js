@@ -31,7 +31,7 @@ describe('Header test suite', () => {
     );
     expect(toJSON()).toMatchSnapshot();
   });
-  // Can't seem to test if react-native-popup-menu appears after butoon is pressed
+  // react-native-popup-menu isn't friendly with testing
   // test('Pressing add button works', () => {
   //   const {getByLabelText, toJSON} = render(
   //     <Header

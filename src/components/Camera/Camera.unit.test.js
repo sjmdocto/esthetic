@@ -23,7 +23,6 @@ describe('Camera test suite:', () => {
     );
     fireEvent.press(getByLabelText('Back button'));
     expect(mockBackButton).toHaveBeenCalled();
-    // expect ClosetScreen to be rendered
   });
 
   test('Save button is functional', () => {
@@ -32,6 +31,5 @@ describe('Camera test suite:', () => {
     );
     fireEvent.press(getByLabelText('Shutter button'));
     expect(mockTakePicture).toHaveBeenCalled();
-    // expect SavePhotoMenu to be rendered by looking for its label text
   });
 });

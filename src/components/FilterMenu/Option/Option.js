@@ -6,6 +6,7 @@ import {Text, StyleSheet, TouchableOpacity, View} from 'react-native';
  * Only one Option obj can be selected at a time per filter type.
  * Currently, the only filter types are color and type (clothing type)
  * e.g. only one color can be selected at a time
+ * @function Option
  * @param {*} props
  * @param {number} props.selection - key for this filter option
  * @param {number} props.currentSelection - currently selected filter in Menu
@@ -15,7 +16,6 @@ import {Text, StyleSheet, TouchableOpacity, View} from 'react-native';
  */
 
 const Option = (props) => {
-  /* TEXT COLOR STUFF */
   const [textColor, setTextColor] = useState('white');
 
   /**
@@ -34,6 +34,7 @@ const Option = (props) => {
   }, [props.currentSelection, props.selection]);
 
   /**
+   * @function selectionHandler
    * @param {number} selection
    * @param {number} currentSelection
    * @param {number} noneKey - 0
@@ -46,7 +47,6 @@ const Option = (props) => {
       props.onSelect(selection);
     }
     // if selection === to currentSelection,
-    // or if some other scenario somehow comes up,
     // set currentSelection to 'none'
     else {
       props.onSelect(noneKey);
@@ -73,8 +73,6 @@ const Option = (props) => {
 const styles = StyleSheet.create({
   buttonContainer: {
     width: 100,
-    //borderWidth: 1,
-    //borderColor: 'black',
   },
 });
 

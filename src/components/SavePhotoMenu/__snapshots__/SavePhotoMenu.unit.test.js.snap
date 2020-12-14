@@ -1,6 +1,143 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Save Photo Menu test suite: Renders properly 1`] = `
+exports[`Save Photo Menu test suite: ColorTagMenu tests:  Renders properly 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View>
+      <View
+        collapsable={false}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          testID="ColorTagMenu-trigger"
+        >
+          <View
+            ctx={
+              Object {
+                "menuActions": Object {
+                  "_getOpenedMenu": [Function],
+                  "_notify": [Function],
+                  "closeMenu": [Function],
+                  "isMenuOpen": [Function],
+                  "openMenu": [Function],
+                  "toggleMenu": [Function],
+                },
+                "menuRegistry": Object {
+                  "getAll": [Function],
+                  "getMenu": [Function],
+                  "setOptionsCustomStyles": [Function],
+                  "subscribe": [Function],
+                  "unsubscribe": [Function],
+                  "updateLayoutInfo": [Function],
+                },
+              }
+            }
+            style={
+              Array [
+                undefined,
+                undefined,
+              ]
+            }
+          >
+            <View
+              accessibilityLabel="Select color tag"
+              accessible={true}
+              style={
+                Object {
+                  "backgroundColor": "white",
+                  "borderRadius": 9,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "marginHorizontal": 5,
+                  "paddingVertical": 2,
+                }
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "black",
+                      "fontSize": 14,
+                    },
+                    Object {
+                      "right": 5,
+                    },
+                    Object {
+                      "fontFamily": "Feather",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+              <Text>
+                Black
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`Save Photo Menu test suite: SavePhotoMenu tests:  Renders properly 1`] = `
 <Modal
   hardwareAccelerated={false}
   transparent={true}
@@ -124,6 +261,7 @@ exports[`Save Photo Menu test suite: Renders properly 1`] = `
                   onResponderTerminate={[Function]}
                   onResponderTerminationRequest={[Function]}
                   onStartShouldSetResponder={[Function]}
+                  testID="ColorTagMenu-trigger"
                 >
                   <View
                     ctx={
@@ -412,4 +550,140 @@ exports[`Save Photo Menu test suite: Renders properly 1`] = `
     </RCTSafeAreaView>
   </View>
 </Modal>
+`;
+
+exports[`Save Photo Menu test suite: TypeTagMenu tests:  Renders properly 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View>
+      <View
+        collapsable={false}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+        >
+          <View
+            ctx={
+              Object {
+                "menuActions": Object {
+                  "_getOpenedMenu": [Function],
+                  "_notify": [Function],
+                  "closeMenu": [Function],
+                  "isMenuOpen": [Function],
+                  "openMenu": [Function],
+                  "toggleMenu": [Function],
+                },
+                "menuRegistry": Object {
+                  "getAll": [Function],
+                  "getMenu": [Function],
+                  "setOptionsCustomStyles": [Function],
+                  "subscribe": [Function],
+                  "unsubscribe": [Function],
+                  "updateLayoutInfo": [Function],
+                },
+              }
+            }
+            style={
+              Array [
+                undefined,
+                undefined,
+              ]
+            }
+          >
+            <View
+              accessibilityLabel="Select clothing type tag"
+              accessible={true}
+              style={
+                Object {
+                  "backgroundColor": "white",
+                  "borderRadius": 9,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "marginHorizontal": 5,
+                  "paddingVertical": 2,
+                }
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "black",
+                      "fontSize": 14,
+                    },
+                    Object {
+                      "right": 5,
+                    },
+                    Object {
+                      "fontFamily": "Feather",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+              <Text>
+                Outerwear
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      collapsable={false}
+      onLayout={[Function]}
+      pointerEvents="box-none"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </RCTSafeAreaView>
+</View>
 `;

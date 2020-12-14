@@ -1,7 +1,5 @@
 import React from 'react';
 import FilterMenu from './FilterMenu';
-// import {testCloset} from '../../../__tests__/testCloset';
-// import smallTestCloset from '../../../__tests__/smallTestCloset';
 import {render, fireEvent} from 'react-native-testing-library';
 
 describe('FilterMenu test suite:', () => {

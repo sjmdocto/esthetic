@@ -1,3 +1,8 @@
+/**
+ * @function compareItemDates
+ * @param {object} item1
+ * @param {object} item2
+ */
 const compareItemDates = (item1, item2) => {
   // Date 1 is earlier than Date 2, so result = 1,
   // and when called with array.sort(), Date 1 comes after Date 2

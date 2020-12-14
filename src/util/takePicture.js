@@ -1,7 +1,9 @@
 /**
  * Handler for taking a photo.
+ * @async
+ * @function takePicture
  * @param cameraRef - see RNCamera docs
- * @return {Promise<String>}
+ * @return {Promise<string>}
  */
 const takePicture = async (cameraRef) => {
   let photoBase64 = '';

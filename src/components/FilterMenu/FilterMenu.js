@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import {
   Modal,
   View,
@@ -9,15 +9,10 @@ import {
 import Icon from 'react-native-vector-icons/Feather';
 import ColorChoices from './Option/ColorChoices';
 import TypeChoices from './Option/TypeChoices';
-import FilterContext from '../../util/FilterContext';
 import {styles} from './FilterMenu.style';
 
-// To-do: resize vertical layout of things depending on whether phone has notch
-// To-do: try to consolidate clothingContainer and colorsContainer to one style
-//        bc they might have the same style properties
-// To-do: Consider removing noneKey prop for OptionText since it will always be 0
-
 /**
+ * @function FilterMenu
  * @param {*} props
  * @param {boolean} props.visible - sets visibility of menu
  * @param {func} props.onClose - close menu
@@ -26,32 +21,34 @@ import {styles} from './FilterMenu.style';
  */
 
 const FilterMenu = (props) => {
-  /* COLOR FILTER STUFF */
+  /* COLOR FILTER CODE */
   const [selectedColor, setSelectedColor] = useState(0);
 
   /**
    * Sets menu's selected color to input color,
    * and sets global filter color to input color.
    * Not used by menu, but is passed to Option
-   * @param
+   * @function changeSelectedClothing
+   * @param {number} color
+   * @returns {void}
    */
   const changeSelectedColor = (color) => {
-    // console.log('changeSelectedColor input:' + color);
     setSelectedColor(color);
     props.setFilterColor(color);
   };
 
-  /* TYPE FILTER STUFF */
+  /* TYPE FILTER CODE */
   const [selectedClothing, setSelectedClothing] = useState(0);
 
   /**
    * Sets menu's selected type to input type,
    * and sets global filter type to input type.
    * Not used by menu, but is passed to OptionText
-   * @param
+   * @function changeSelectedClothing
+   * @param {number} clothing
+   * @returns {void}
    */
   const changeSelectedClothing = (clothing) => {
-    // console.log('changeSelectedClothing input:' + clothing);
     setSelectedClothing(clothing);
     props.setFilterType(clothing);
   };

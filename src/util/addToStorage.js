@@ -1,5 +1,11 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+/**
+ * @async
+ * @function addToStorage
+ * @param {object} clothingItem
+ * @returns {Promise<void>}
+ */
 const addToStorage = async (clothingItem) => {
   try {
     const jsonValue = JSON.stringify(clothingItem);

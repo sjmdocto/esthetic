@@ -14,33 +14,32 @@ import connectPhotoToItem from '../../util/connectPhotoToItem';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 /**
- * @param {*} navigation
+ * @function CameraScreen
+ * @param {} navigation
  */
 
 const CameraScreen = ({navigation}) => {
-  /* CODE FOR TAKING PHOTOS */
   const [photoBase64, setPhotoBase64] = useState('');
-  let cameraRef = useRef(null); // used by props.takePicture()
-
-  // state variable for SavePhoto menu modal
   const [saveVisible, setSaveVisible] = useState(false);
-
   const {closet, setCloset} = useContext(ClosetContext);
+  let cameraRef = useRef(null); // used by props.takePicture()
 
   /**
    * Handler for pressing the shutter button.
    * Call to takePicture() requires cameraRef
-   * Not sure if async and await are necessary for this
+   * @async
+   * @function shutterHandler
+   * @returns {Promise<void>}
    */
   const shutterHandler = async () => {
     let photo = await takePicture(cameraRef);
     setPhotoBase64(photo);
-    // cameraRef.current.pausePreview();
     setSaveVisible(true);
   };
 
   /**
    * Handler for discarding the photo that was just taken.
+   * @function discardHandler
    */
   const discardHandler = () => {
     cameraRef.current.resumePreview();
@@ -49,12 +48,11 @@ const CameraScreen = ({navigation}) => {
 
   /**
    * Handler for saving the photo that was just taken.
-   * Saves the photo and clothing info into a clothingItem object,
-   * and then saves that clothingItem object to AsyncStorage.
-   * Finally, hide the SavePhoto menu modal
-   * @param photo - photo's base64 representation
+   * @async
+   * @function saveHandler
    * @param colorTag - selected colorTag for the clothing item
    * @param typeTag - selected typeTag for the clothing item
+   * @returns {Promise<void>}
    */
   const saveHandler = async (colorTag, typeTag) => {
     // First, create clothingItem
@@ -63,12 +61,12 @@ const CameraScreen = ({navigation}) => {
     try {
       // Then write the photo to disk
       await writePhotoToDisk(clothingItem, photoBase64);
-      // Then, connect photo to clothingItem
+      // Then, create a new clothingItem object with photo property
       clothingItemWithPhoto = await connectPhotoToItem(clothingItem);
       // Then, add clothingItem to closet state
       const newCloset = addClothingItem(closet, clothingItemWithPhoto);
       setCloset(newCloset);
-      // Next add clothingItem to Storage
+      // Next add clothingItem (without photo property) to Storage
       addToStorage(clothingItem);
       // Then, Hide the save menu
       setSaveVisible(false);

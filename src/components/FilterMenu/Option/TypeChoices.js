@@ -4,6 +4,7 @@ import TypeOption from './TypeOption';
 import typeKey from '../../../util/typeKey';
 
 /**
+ * @function TypeChoices
  * @param {*} props
  * @param {object} props.style
  * @param {number} props.currentType

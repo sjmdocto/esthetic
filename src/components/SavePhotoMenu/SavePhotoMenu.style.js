@@ -10,28 +10,20 @@ export const styles = StyleSheet.create({
     marginVertical: common.SCREENHEIGHT / 4,
     backgroundColor: '#1F1F1F',
     borderRadius: 40,
-    //bottom: SCREENHEIGHT / 5,
-    // borderWidth: 1,
-    // borderColor: 'purple',
   },
   titleContainer: {
     flex: 1,
     paddingTop: 10,
-    // borderWidth: 1,
-    // borderColor: 'blue',
   },
   body: {
     flex: 3,
     flexDirection: 'row',
     paddingHorizontal: 10,
-    // borderWidth: 1,
-    // borderColor: 'yellow',
   },
   imageContainer: {
     flex: 45,
     marginRight: 10,
     justifyContent: 'center',
-    //backgroundColor: 'white',
   },
   buttonsContainer: {
     flex: 2,
@@ -39,8 +31,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-evenly',
     paddingHorizontal: 1,
-    // borderWidth: 1,
-    // borderColor: 'green',
   },
   titleText: {
     color: 'white',
@@ -49,8 +39,6 @@ export const styles = StyleSheet.create({
   tagsContainer: {
     flex: 55,
     justifyContent: 'space-evenly',
-    // borderWidth: 1,
-    // borderColor: 'red',
   },
   tagsText: {
     color: 'white',
@@ -59,7 +47,6 @@ export const styles = StyleSheet.create({
   discardButton: {
     flex: 1,
     marginHorizontal: 20,
-    // marginVertical: 5,
     height: 50,
     width: 1,
     backgroundColor: '#141414',
@@ -70,7 +57,6 @@ export const styles = StyleSheet.create({
   saveButton: {
     flex: 1,
     marginHorizontal: 20,
-    // marginVertical: 5,
     height: 50,
     width: 1,
     backgroundColor: theme.EST_ORANGE,
@@ -94,6 +80,5 @@ export const styles = StyleSheet.create({
     width: 140,
     height: 140,
     marginRight: 10,
-    // justifyContent: 'space-around',
   },
 });

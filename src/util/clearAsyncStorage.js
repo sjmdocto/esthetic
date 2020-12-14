@@ -1,5 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+/**
+ * @async
+ * @function clearAppData
+ * @returns {Promise<void>}
+ */
 const clearAppData = async () => {
   try {
     const keys = await AsyncStorage.getAllKeys();

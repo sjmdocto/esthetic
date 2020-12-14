@@ -24,20 +24,19 @@ const colorTag = {
 };
 
 /**
- * Popup menu for selecting color tag, called by SavePhoto.js
+ * Popup menu for selecting color tag, called by SavePhotoMenu
+ * @function ColorTagMenu
  * @param {*} props
- * @param {func} setColorTag
+ * @param {func} props.setColorTag
  */
 
 const ColorTagMenu = (props) => {
-  //state variable for currently selected color from menu
   const [colorSelect, setColorSelect] = useState(colorTag.black);
-
   /**
-   * Helper function for clothingSelectHandler
-   *
-   * Sets the color tag in SavePhoto
+   * Helper function for clothingSelectHandler.
+   * @function tagToKey
    * @param {string} tag
+   * @returns {void}
    */
   const tagToKey = (tag) => {
     switch (tag) {
@@ -76,10 +75,11 @@ const ColorTagMenu = (props) => {
         break;
     }
   };
-
   /**
    * Handler for selecting a color tag from the menu
-   * @param {string} tag
+   * @function colorSelectHandler
+   * @param {string} color
+   * @returns {void}
    */
   const colorSelectHandler = (color) => {
     setColorSelect(color);
@@ -88,7 +88,8 @@ const ColorTagMenu = (props) => {
 
   return (
     <Menu>
-      <MenuTrigger>
+      <MenuTrigger
+        customStyles={{triggerTouchable: {testID: 'ColorTagMenu-trigger'}}}>
         <View
           style={styles.tagSelector}
           accessible={true}

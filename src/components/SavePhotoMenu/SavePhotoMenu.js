@@ -1,28 +1,23 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import {View, Text, Modal, TouchableOpacity, Image} from 'react-native';
 import {MenuProvider} from 'react-native-popup-menu';
 import ColorTagMenu from './ColorTagMenu';
 import TypeTagMenu from './TypeTagMenu';
 import {styles} from './SavePhotoMenu.style';
-import ClosetContext from '../../util/ClosetContext';
-
-// To-do: blur TakePhoto screen when this screen pops up
 
 /**
- *  Popup menu for when you press the shutter, that is
- *  called by TakePhoto.js
- *  @param {*} props
- *  @param {boolean} props.saveVisibility
- *  @param {func} props.onSave
- *  @param {func} props.onDiscard
- *  @param {string} props.photo: base64 representation of photo just taken
- *  @param {array} props.closet
+ * Popup menu for when you press the shutter
+ * @function SavePhotoMenu
+ * @param {*} props
+ * @param {boolean} props.saveVisibility
+ * @param {func} props.onSave
+ * @param {func} props.onDiscard
+ * @param {string} props.photo (in base64)
+ * @param {array} props.closet
  */
 
 const SavePhotoMenu = (props) => {
-  // state variable used by ColorTagMenu
   const [colorTag, setColorTag] = useState(1);
-  // state variable used by TypeTagMenu
   const [typeTag, setTypeTag] = useState(1);
 
   return (

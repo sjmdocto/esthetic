@@ -18,7 +18,6 @@ const App = () => {
     (async () => {
       try {
         let savedCloset = await getSavedCloset();
-        console.log('getSavedCloset returned');
         setCloset(savedCloset);
         setIsLoading(false);
       } catch (e) {}

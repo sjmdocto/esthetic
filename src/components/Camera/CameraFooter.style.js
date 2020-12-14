@@ -9,8 +9,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: theme.EST_LIGHT_BLACK,
-    // borderWidth: 1,
-    // borderColor: 'white',
   },
   backButton: {
     position: 'absolute',

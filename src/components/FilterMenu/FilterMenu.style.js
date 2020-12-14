@@ -5,24 +5,18 @@ export const styles = StyleSheet.create({
   menuScreen: {
     flexDirection: 'row',
     flex: 1,
-    // if android, can use StatusBar.currentHeight
-    // else, for iOS, has to be set manually to 20
-    // PROBLEM: dealing with android's with notches
-    // and iPhone's w/o notches
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   menuArea: {
     backgroundColor: theme.EST_ORANGE_TRANSP,
     flex: 9,
     color: 'white',
-    // only looks good on iPhones w/notches
     paddingTop: Platform.OS === 'android' ? 0 : 45,
     paddingBottom: Platform.OS === 'android' ? 0 : 10,
   },
   menuHeader: {
     borderBottomWidth: 1,
     borderBottomColor: 'white',
-    //height: '8%',
     flex: 8,
   },
   filtersTitle: {
@@ -63,7 +57,6 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   doneButton: {
-    //borderWidth: 1,
     width: 50,
     alignItems: 'center',
   },

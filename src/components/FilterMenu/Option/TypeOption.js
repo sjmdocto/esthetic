@@ -3,6 +3,7 @@ import Option from './Option';
 
 /**
  * Wrapper for Option component
+ * @function TypeOption
  * @param {*} props
  * @param {number} props.type - this color's key
  * @param {number} props.currentType - currently selected color in Menu
