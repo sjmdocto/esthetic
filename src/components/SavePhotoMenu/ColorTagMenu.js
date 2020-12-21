@@ -14,12 +14,14 @@ const colorTag = {
   black: 'Black',
   white: 'White',
   grey: 'Grey',
+  brown: 'Brown',
   red: 'Red',
   orange: 'Orange',
   yellow: 'Yellow',
   green: 'Green',
   blue: 'Blue',
   purple: 'Purple',
+  pink: 'Pink',
   multicolored: 'Multicolored',
 };
 
@@ -49,6 +51,9 @@ const ColorTagMenu = (props) => {
       case 'Grey':
         props.setColorTag(colorKey.grey);
         break;
+      case 'Brown':
+        props.setColorTag(colorKey.brown);
+        break;
       case 'Red':
         props.setColorTag(colorKey.red);
         break;
@@ -66,6 +71,9 @@ const ColorTagMenu = (props) => {
         break;
       case 'Purple':
         props.setColorTag(colorKey.purple);
+        break;
+      case 'Pink':
+        props.setColorTag(colorKey.pink);
         break;
       case 'Multicolored':
         props.setColorTag(colorKey.multicolored);
@@ -116,36 +124,46 @@ const ColorTagMenu = (props) => {
         />
         <MenuOption
           value={4}
+          text={colorTag.brown}
+          onSelect={colorSelectHandler.bind(this, colorTag.brown)}
+        />
+        <MenuOption
+          value={5}
           text={colorTag.red}
           onSelect={colorSelectHandler.bind(this, colorTag.red)}
         />
         <MenuOption
-          value={5}
+          value={6}
           text={colorTag.orange}
           onSelect={colorSelectHandler.bind(this, colorTag.orange)}
         />
         <MenuOption
-          value={6}
+          value={7}
           text={colorTag.yellow}
           onSelect={colorSelectHandler.bind(this, colorTag.yellow)}
         />
         <MenuOption
-          value={7}
+          value={8}
           text={colorTag.green}
           onSelect={colorSelectHandler.bind(this, colorTag.green)}
         />
         <MenuOption
-          value={8}
+          value={9}
           text={colorTag.blue}
           onSelect={colorSelectHandler.bind(this, colorTag.blue)}
         />
         <MenuOption
-          value={9}
+          value={10}
           text={colorTag.purple}
           onSelect={colorSelectHandler.bind(this, colorTag.purple)}
         />
         <MenuOption
-          value={10}
+          value={11}
+          text={colorTag.pink}
+          onSelect={colorSelectHandler.bind(this, colorTag.pink)}
+        />
+        <MenuOption
+          value={12}
           text={colorTag.multicolored}
           onSelect={colorSelectHandler.bind(this, colorTag.multicolored)}
         />

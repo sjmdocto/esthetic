@@ -36,6 +36,13 @@ const ColorChoices = (props) => {
         onSelect={props.selectColor}
       />
       <ColorOption
+        color={colorKey.brown}
+        currentColor={props.currentColor}
+        noneKey={colorKey.none}
+        text={'Brown'}
+        onSelect={props.selectColor}
+      />
+      <ColorOption
         color={colorKey.red}
         currentColor={props.currentColor}
         noneKey={colorKey.none}
@@ -75,6 +82,13 @@ const ColorChoices = (props) => {
         currentColor={props.currentColor}
         noneKey={colorKey.none}
         text={'Purple'}
+        onSelect={props.selectColor}
+      />
+      <ColorOption
+        color={colorKey.pink}
+        currentColor={props.currentColor}
+        noneKey={colorKey.none}
+        text={'Pink'}
         onSelect={props.selectColor}
       />
       <ColorOption
