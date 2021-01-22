@@ -206,6 +206,36 @@ exports[`FilterMenu test suite: FilterMenu renders properly. 1`] = `
               </View>
             </View>
             <View
+              accessibilityLabel="Brown filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Brown
+                </Text>
+              </View>
+            </View>
+            <View
               accessibilityLabel="Red filter button"
               accessible={true}
               focusable={true}
@@ -382,6 +412,36 @@ exports[`FilterMenu test suite: FilterMenu renders properly. 1`] = `
                   }
                 >
                   Purple
+                </Text>
+              </View>
+            </View>
+            <View
+              accessibilityLabel="Pink filter button"
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                  "width": 100,
+                }
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Pink
                 </Text>
               </View>
             </View>
