@@ -18,70 +18,70 @@ const TypeChoices = (props) => {
         type={typeKey.outerwear}
         currentType={props.currentType}
         noneKey={typeKey.none}
-        text={'Outerwear'}
+        text={typeKey.outerwear}
         onSelect={props.selectType}
       />
       <TypeOption
         type={typeKey.formalwear}
         currentType={props.currentType}
         noneKey={typeKey.none}
-        text={'Formal Wear'}
+        text={typeKey.formalwear}
         onSelect={props.selectType}
       />
       <TypeOption
         type={typeKey.sweaters}
         currentType={props.currentType}
         noneKey={typeKey.none}
-        text={'Sweaters'}
+        text={typeKey.sweaters}
         onSelect={props.selectType}
       />
       <TypeOption
         type={typeKey.hoodies}
         currentType={props.currentType}
         noneKey={typeKey.none}
-        text={'Hoodies'}
+        text={typeKey.hoodies}
         onSelect={props.selectType}
       />
       <TypeOption
         type={typeKey.buttonUps}
         currentType={props.currentType}
         noneKey={typeKey.none}
-        text={'Button Ups'}
+        text={typeKey.buttonUps}
         onSelect={props.selectType}
       />
       <TypeOption
         type={typeKey.tees}
         currentType={props.currentType}
         noneKey={typeKey.none}
-        text={'Tees'}
+        text={typeKey.tees}
         onSelect={props.selectType}
       />
       <TypeOption
         type={typeKey.pants}
         currentType={props.currentType}
         noneKey={typeKey.none}
-        text={'Pants'}
+        text={typeKey.pants}
         onSelect={props.selectType}
       />
       <TypeOption
         type={typeKey.shorts}
         currentType={props.currentType}
         noneKey={typeKey.none}
-        text={'Shorts'}
+        text={typeKey.shorts}
         onSelect={props.selectType}
       />
       <TypeOption
-        type={typeKey.activeWear}
+        type={typeKey.activewear}
         currentType={props.currentType}
         noneKey={typeKey.none}
-        text={'Activewear'}
+        text={typeKey.activewear}
         onSelect={props.selectType}
       />
       <TypeOption
         type={typeKey.shoes}
         currentType={props.currentType}
         noneKey={typeKey.none}
-        text={'Shoes'}
+        text={typeKey.shoes}
         onSelect={props.selectType}
       />
     </View>

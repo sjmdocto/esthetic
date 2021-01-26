@@ -18,84 +18,84 @@ const ColorChoices = (props) => {
         color={colorKey.black}
         currentColor={props.currentColor}
         noneKey={colorKey.none}
-        text={'Black'}
+        text={colorKey.black}
         onSelect={props.selectColor}
       />
       <ColorOption
         color={colorKey.white}
         currentColor={props.currentColor}
         noneKey={colorKey.none}
-        text={'White'}
+        text={colorKey.white}
         onSelect={props.selectColor}
       />
       <ColorOption
         color={colorKey.grey}
         currentColor={props.currentColor}
         noneKey={colorKey.none}
-        text={'Grey'}
+        text={colorKey.grey}
         onSelect={props.selectColor}
       />
       <ColorOption
         color={colorKey.brown}
         currentColor={props.currentColor}
         noneKey={colorKey.none}
-        text={'Brown'}
+        text={colorKey.brown}
         onSelect={props.selectColor}
       />
       <ColorOption
         color={colorKey.red}
         currentColor={props.currentColor}
         noneKey={colorKey.none}
-        text={'Red'}
+        text={colorKey.red}
         onSelect={props.selectColor}
       />
       <ColorOption
         color={colorKey.orange}
         currentColor={props.currentColor}
         noneKey={colorKey.none}
-        text={'Orange'}
+        text={colorKey.orange}
         onSelect={props.selectColor}
       />
       <ColorOption
         color={colorKey.yellow}
         currentColor={props.currentColor}
         noneKey={colorKey.none}
-        text={'Yellow'}
+        text={colorKey.yellow}
         onSelect={props.selectColor}
       />
       <ColorOption
         color={colorKey.green}
         currentColor={props.currentColor}
         noneKey={colorKey.none}
-        text={'Green'}
+        text={colorKey.green}
         onSelect={props.selectColor}
       />
       <ColorOption
         color={colorKey.blue}
         currentColor={props.currentColor}
         noneKey={colorKey.none}
-        text={'Blue'}
+        text={colorKey.blue}
         onSelect={props.selectColor}
       />
       <ColorOption
         color={colorKey.purple}
         currentColor={props.currentColor}
         noneKey={colorKey.none}
-        text={'Purple'}
+        text={colorKey.purple}
         onSelect={props.selectColor}
       />
       <ColorOption
         color={colorKey.pink}
         currentColor={props.currentColor}
         noneKey={colorKey.none}
-        text={'Pink'}
+        text={colorKey.pink}
         onSelect={props.selectColor}
       />
       <ColorOption
         color={colorKey.multicolored}
         currentColor={props.currentColor}
         noneKey={colorKey.none}
-        text={'Multicolored'}
+        text={colorKey.multicolored}
         onSelect={props.selectColor}
       />
     </View>

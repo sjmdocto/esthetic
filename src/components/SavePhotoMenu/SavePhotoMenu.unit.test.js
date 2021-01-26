@@ -2,6 +2,8 @@ import React from 'react';
 import ColorTagMenu from './ColorTagMenu';
 import SavePhotoMenu from './SavePhotoMenu';
 import TypeTagMenu from './TypeTagMenu';
+import colorKey from '../../util/colorKey';
+import typeKey from '../../util/typeKey';
 import {fireEvent, render} from 'react-native-testing-library';
 import {MenuProvider} from 'react-native-popup-menu';
 
@@ -11,7 +13,10 @@ describe('Save Photo Menu test suite:', () => {
     test('Renders properly', () => {
       const {toJSON} = render(
         <MenuProvider>
-          <ColorTagMenu setColorTag={mockSetColorTag} />
+          <ColorTagMenu
+            colorTag={colorKey.black}
+            setColorTag={mockSetColorTag}
+          />
         </MenuProvider>,
       );
       expect(toJSON()).toMatchSnapshot();
@@ -35,7 +40,10 @@ describe('Save Photo Menu test suite:', () => {
     test('Renders properly', () => {
       const {toJSON} = render(
         <MenuProvider>
-          <TypeTagMenu setTypeTag={mockSetTypeTag} />
+          <TypeTagMenu
+            typeTag={typeKey.outerwear}
+            setTypeTag={mockSetTypeTag}
+          />
         </MenuProvider>,
       );
       expect(toJSON()).toMatchSnapshot();
@@ -52,7 +60,12 @@ describe('Save Photo Menu test suite:', () => {
 
     test('Renders properly', () => {
       const {toJSON} = render(
-        <SavePhotoMenu onSave={mockOnSave} photo={testPhoto} />,
+        <SavePhotoMenu
+          onSave={mockOnSave}
+          photo={testPhoto}
+          colorTag={colorKey.black}
+          typeTag={typeKey.outerwear}
+        />,
       );
       expect(toJSON()).toMatchSnapshot();
     });

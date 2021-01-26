@@ -179,28 +179,28 @@ exports[`Grid test suite: If closet is not empty, then grid tiles are created. 1
     data={
       Array [
         Object {
-          "colorTag": 1,
+          "colorTag": "Black",
           "key": 1,
           "photo": "base64",
-          "typeTag": 1,
+          "typeTag": "Outerwear",
         },
         Object {
-          "colorTag": 1,
+          "colorTag": "Black",
           "key": 2,
           "photo": "base64",
-          "typeTag": 1,
+          "typeTag": "Outerwear",
         },
         Object {
-          "colorTag": 1,
+          "colorTag": "Black",
           "key": 3,
           "photo": "base64",
-          "typeTag": 2,
+          "typeTag": "Pants",
         },
         Object {
-          "colorTag": 1,
+          "colorTag": "Black",
           "key": 4,
           "photo": "base64",
-          "typeTag": 2,
+          "typeTag": "Pants",
         },
       ]
     }

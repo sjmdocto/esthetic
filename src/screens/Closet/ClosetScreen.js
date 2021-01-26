@@ -9,13 +9,18 @@ import {MenuProvider} from 'react-native-popup-menu';
 import ClosetContext from '../../util/ClosetContext';
 import * as ImagePicker from 'expo-image-picker';
 import SavePhotoMenu from '../../components/SavePhotoMenu/SavePhotoMenu';
-import makeClothingItem from '../../util/makeClothingItem';
 import addClothingItem from '../../util/addClothingItem';
 import addToStorage from '../../util/addToStorage';
 import writePhotoToDisk from '../../util/writePhotoToDisk';
 import connectPhotoToItem from '../../util/connectPhotoToItem';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import WelcomeText from '../../components/Welcome/WelcomeText';
+import colorKey from '../../util/colorKey';
+import typeKey from '../../util/typeKey';
+import createItemTicket from '../../util/createItemTicket';
+import fetchColorTag from '../../util/fetchColorTag';
+import fetchTypeTag from '../../util/fetchTypeTag';
+import deletePhotoFromDisk from '../../util/deletePhotoFromDisk';
 import {styles} from './ClosetScreen.style';
 
 /**
@@ -26,8 +31,8 @@ import {styles} from './ClosetScreen.style';
 const ClosetScreen = ({navigation}) => {
   /* CODE FOR MENU */
   const [menuVisible, setMenuVisible] = useState(false);
-  const [filterColor, setFilterColor] = useState(0);
-  const [filterType, setFilterType] = useState(0);
+  const [filterColor, setFilterColor] = useState(colorKey.none);
+  const [filterType, setFilterType] = useState(typeKey.none);
   /** Wrapper for setMenuVisible(true)
    * @function openFilterMenu
    * @returns {void}
@@ -47,7 +52,6 @@ const ClosetScreen = ({navigation}) => {
   const {closet, setCloset} = useContext(ClosetContext);
   const [photoBase64, setPhotoBase64] = useState('');
   const [saveVisible, setSaveVisible] = useState(false);
-
   /**
    * @function onDelete
    * @param {string} key
@@ -60,7 +64,9 @@ const ClosetScreen = ({navigation}) => {
   };
 
   /* CODE FOR IMPORT */
-
+  const [ticket, setTicket] = useState({key: '', date: 0});
+  const [colorTag, setColorTag] = useState(colorKey.black);
+  const [typeTag, setTypeTag] = useState(typeKey.outerwear);
   // Ensure that camera roll access has been granted
   useEffect(() => {
     (async () => {
@@ -77,7 +83,6 @@ const ClosetScreen = ({navigation}) => {
       }
     })();
   }, []);
-
   /**
    * Function to choose image from photo gallery
    * @async
@@ -85,53 +90,75 @@ const ClosetScreen = ({navigation}) => {
    * @returns {Promise<void>}
    */
   const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [1, 1],
-      quality: 0,
-      base64: true,
-    });
+    let color, type;
+    try {
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [1, 1],
+        quality: 0,
+        base64: true,
+      });
 
-    if (!result.cancelled) {
-      setPhotoBase64(result.base64);
-      setSaveVisible(true);
-    }
+      if (!result.cancelled) {
+        // 1) Update the photo state to the new photo
+        setPhotoBase64(result.base64);
+        // 2a) Create item ticket so the new clothingItem has an ID
+        let item = createItemTicket();
+        // 2b) Update ticket state to the new itemTicket
+        setTicket(item);
+        // 3) Write the photo to disk
+        await writePhotoToDisk(item, result.base64);
+        // 4a) Send photo to ML model to determine color
+        color = fetchColorTag();
+        // 4b) Update colorTag state to determined color
+        setColorTag(color);
+        // 5a) Send photo to ML model to determine clothing type
+        type = fetchTypeTag();
+        // 5b) Update typeTag state to determined color
+        setTypeTag(type);
+        // 6) Open the Save menu
+        setSaveVisible(true);
+      }
+    } catch (e) {}
   };
 
   /**
    * @async
    * @function saveHandler
-   * @param {number} colorTag
-   * @param {number} typeTag
    * @returns {Promise<void>}
    */
-  const saveHandler = async (colorTag, typeTag) => {
-    // First, create clothingItem
-    const clothingItem = makeClothingItem(colorTag, typeTag);
-    let clothingItemWithPhoto;
+  const saveHandler = async () => {
+    // 1) Add tag properties to clothingItem
+    let item = ticket;
+    item.colorTag = colorTag;
+    item.typeTag = typeTag;
+    let newCloset;
     try {
-      // Then write the photo to disk
-      await writePhotoToDisk(clothingItem, photoBase64);
-      // Then, connect photo to clothingItem
-      clothingItemWithPhoto = await connectPhotoToItem(clothingItem);
-      // Then, add clothingItem to closet state
-      const newCloset = addClothingItem(closet, clothingItemWithPhoto);
+      // 2) Add clothingItem to storage
+      await addToStorage(item);
+      // 3) Add photo property to clothingItem
+      let itemWithPhoto;
+      itemWithPhoto = await connectPhotoToItem(item);
+      // 4a) Add item to closet
+      newCloset = addClothingItem(closet, itemWithPhoto);
+      // 4b) Update closet state to contain new item
       setCloset(newCloset);
-      // Next add clothingItem to Storage
-      // NOTE: NOT clothingItemWithPhoto bc photo variable takes up a lot of data
-      await addToStorage(clothingItem);
-      // Then, Hide the save menu
+      // 5) Hide the save menu
       setSaveVisible(false);
     } catch (e) {}
   };
 
   /**
    * @function discardHandler
+   * TODO: delete photo from disk
    * @returns {void}
    */
-  const discardHandler = () => {
-    setSaveVisible(false);
+  const discardHandler = async () => {
+    try {
+      await deletePhotoFromDisk(ticket);
+      setSaveVisible(false);
+    } catch (e) {}
   };
 
   /* CODE FOR WELCOME TEXT */
@@ -155,7 +182,10 @@ const ClosetScreen = ({navigation}) => {
           onSave={saveHandler}
           onDiscard={discardHandler}
           photo={photoBase64}
-          closet={closet}
+          colorTag={colorTag}
+          setColorTag={setColorTag}
+          typeTag={typeTag}
+          setTypeTag={setTypeTag}
         />
         <FilterMenu
           visible={menuVisible}

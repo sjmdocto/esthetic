@@ -563,7 +563,7 @@ exports[`FilterMenu test suite: FilterMenu renders properly. 1`] = `
               </View>
             </View>
             <View
-              accessibilityLabel="Formal Wear filter button"
+              accessibilityLabel="Formal wear filter button"
               accessible={true}
               focusable={true}
               onClick={[Function]}
@@ -588,7 +588,7 @@ exports[`FilterMenu test suite: FilterMenu renders properly. 1`] = `
                     }
                   }
                 >
-                  Formal Wear
+                  Formal wear
                 </Text>
               </View>
             </View>

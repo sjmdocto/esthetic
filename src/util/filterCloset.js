@@ -1,3 +1,6 @@
+import colorKey from './typeKey';
+import typeKey from './typeKey';
+
 /**
  * Filters closet by the currently selected color and type filters
  * @function filterCloset
@@ -13,19 +16,19 @@ const filterCloset = (closet, filterColor, filterType) => {
     return [];
   }
   // 1) No color filter, no type filter
-  else if (filterColor === 0 && filterType === 0) {
+  else if (filterColor === colorKey.none && filterType === typeKey.none) {
     return closet;
   }
   // 2) Color filter, but no type filter
-  else if (filterColor !== 0 && filterType === 0) {
+  else if (filterColor !== colorKey.none && filterType === typeKey.none) {
     return closet.filter((item) => item.colorTag === filterColor);
   }
   // 3) No color filter, type filter only
-  else if (filterColor === 0 && filterType !== 0) {
+  else if (filterColor === colorKey.none && filterType !== typeKey.none) {
     return closet.filter((item) => item.typeTag === filterType);
   }
   // 4) Color filter and type filter
-  else if (filterColor !== 0 && filterType !== 0) {
+  else if (filterColor !== colorKey.none && filterType !== typeKey.none) {
     let filterByColor = closet.filter((item) => item.colorTag === filterColor);
     let filtered = filterByColor.filter((item) => item.typeTag === filterType);
     return filtered;

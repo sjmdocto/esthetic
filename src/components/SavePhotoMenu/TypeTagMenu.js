@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text} from 'react-native';
 import {
   Menu,
@@ -10,80 +10,30 @@ import Icon from 'react-native-vector-icons/Feather';
 import typeKey from '../../util/typeKey';
 import {styles} from './TagMenu.style';
 
-const typeTag = {
-  outerwear: 'Outerwear',
-  formalwear: 'Formal Wear',
-  sweaters: 'Sweaters',
-  hoodies: 'Hoodies',
-  buttonUps: 'Button Ups',
-  tees: 'Tees',
-  pants: 'Pants',
-  shorts: 'Shorts',
-  activeWear: 'Activewear',
-  shoes: 'Shoes',
-};
-
 /**
  * Popup menu for selecting type tag, called by SavePhotoMenu
  * @function TypeTagMenu
  * @param {*} props
  * @param {func} props.setTypeTag
+ * @param {string} props.typeTag
  */
 
 const TypeTagMenu = (props) => {
-  const [clothingSelect, setClothingSelect] = useState(typeTag.outerwear);
-  /**
-   * Helper function for clothingSelectHandler
-   * @function tagToKey
-   * @param {string} tag
-   * @returns {void}
-   */
-  const tagToKey = (tag) => {
-    switch (tag) {
-      case 'Outerwear':
-        props.setTypeTag(typeKey.outerwear);
-        break;
-      case 'Formal Wear':
-        props.setTypeTag(typeKey.formalwear);
-        break;
-      case 'Sweaters':
-        props.setTypeTag(typeKey.sweaters);
-        break;
-      case 'Hoodies':
-        props.setTypeTag(typeKey.hoodies);
-        break;
-      case 'Button Ups':
-        props.setTypeTag(typeKey.buttonUps);
-        break;
-      case 'Tees':
-        props.setTypeTag(typeKey.tees);
-        break;
-      case 'Pants':
-        props.setTypeTag(typeKey.pants);
-        break;
-      case 'Shorts':
-        props.setTypeTag(typeKey.shorts);
-        break;
-      case 'Activewear':
-        props.setTypeTag(typeKey.activeWear);
-        break;
-      case 'Shoes':
-        props.setTypeTag(typeKey.shoes);
-        break;
-      default:
-        console.warn('tagToKey error');
-        break;
-    }
-  };
+  const [typeSelect, setTypeSelect] = useState(typeKey.outerwear);
+
+  useEffect(() => {
+    setTypeSelect(props.typeTag);
+  }, [props.typeTag]);
+
   /**
    * Handler for selecting a type tag from the menu
-   * @function clothingSelectHandler
-   * @param {string} tag
+   * @function typeSelectHandler
+   * @param {string} type
    * @returns {void}
    */
-  const clothingSelectHandler = (clothing) => {
-    setClothingSelect(clothing);
-    tagToKey(clothing);
+  const typeSelectHandler = (type) => {
+    props.setTypeTag(type);
+    setTypeSelect(type);
   };
 
   return (
@@ -94,59 +44,59 @@ const TypeTagMenu = (props) => {
           accessible={true}
           accessibilityLabel={'Select clothing type tag'}>
           <Icon name={'tag'} size={14} color={'black'} style={styles.icon} />
-          <Text>{clothingSelect}</Text>
+          <Text>{typeSelect}</Text>
         </View>
       </MenuTrigger>
       <MenuOptions>
         <MenuOption
           value={1}
-          text={typeTag.outerwear}
-          onSelect={clothingSelectHandler.bind(this, typeTag.outerwear)}
+          text={typeKey.outerwear}
+          onSelect={typeSelectHandler.bind(this, typeKey.outerwear)}
         />
         <MenuOption
           value={2}
-          text={typeTag.formalwear}
-          onSelect={clothingSelectHandler.bind(this, typeTag.formalwear)}
+          text={typeKey.formalwear}
+          onSelect={typeSelectHandler.bind(this, typeKey.formalwear)}
         />
         <MenuOption
           value={3}
-          text={typeTag.sweaters}
-          onSelect={clothingSelectHandler.bind(this, typeTag.sweaters)}
+          text={typeKey.sweaters}
+          onSelect={typeSelectHandler.bind(this, typeKey.sweaters)}
         />
         <MenuOption
           value={4}
-          text={typeTag.hoodies}
-          onSelect={clothingSelectHandler.bind(this, typeTag.hoodies)}
+          text={typeKey.hoodies}
+          onSelect={typeSelectHandler.bind(this, typeKey.hoodies)}
         />
         <MenuOption
           value={5}
-          text={typeTag.buttonUps}
-          onSelect={clothingSelectHandler.bind(this, typeTag.buttonUps)}
+          text={typeKey.buttonUps}
+          onSelect={typeSelectHandler.bind(this, typeKey.buttonUps)}
         />
         <MenuOption
           value={6}
-          text={typeTag.tees}
-          onSelect={clothingSelectHandler.bind(this, typeTag.tees)}
+          text={typeKey.tees}
+          onSelect={typeSelectHandler.bind(this, typeKey.tees)}
         />
         <MenuOption
           value={7}
-          text={typeTag.pants}
-          onSelect={clothingSelectHandler.bind(this, typeTag.pants)}
+          text={typeKey.pants}
+          onSelect={typeSelectHandler.bind(this, typeKey.pants)}
         />
         <MenuOption
           value={8}
-          text={typeTag.shorts}
-          onSelect={clothingSelectHandler.bind(this, typeTag.shorts)}
+          text={typeKey.shorts}
+          onSelect={typeSelectHandler.bind(this, typeKey.shorts)}
         />
         <MenuOption
           value={9}
-          text={typeTag.activeWear}
-          onSelect={clothingSelectHandler.bind(this, typeTag.activeWear)}
+          text={typeKey.activewear}
+          onSelect={typeSelectHandler.bind(this, typeKey.activewear)}
         />
         <MenuOption
           value={10}
-          text={typeTag.shoes}
-          onSelect={clothingSelectHandler.bind(this, typeTag.shoes)}
+          text={typeKey.shoes}
+          onSelect={typeSelectHandler.bind(this, typeKey.shoes)}
         />
       </MenuOptions>
     </Menu>

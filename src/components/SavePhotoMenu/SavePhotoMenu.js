@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text, Modal, TouchableOpacity, Image} from 'react-native';
 import {MenuProvider} from 'react-native-popup-menu';
 import ColorTagMenu from './ColorTagMenu';
@@ -13,13 +13,13 @@ import {styles} from './SavePhotoMenu.style';
  * @param {func} props.onSave
  * @param {func} props.onDiscard
  * @param {string} props.photo (in base64)
- * @param {array} props.closet
+ * @param {number} props.colorTag
+ * @param {func} props.setColorTag
+ * @param {number} props.typeTag
+ * @param {func} props.setTypeTag
  */
 
 const SavePhotoMenu = (props) => {
-  const [colorTag, setColorTag] = useState(1);
-  const [typeTag, setTypeTag] = useState(1);
-
   return (
     <Modal visible={props.saveVisibility} transparent={true}>
       <MenuProvider skipInstanceCheck={true}>
@@ -39,9 +39,15 @@ const SavePhotoMenu = (props) => {
             </View>
             <View style={styles.tagsContainer}>
               <Text style={styles.tagsText}>Color:</Text>
-              <ColorTagMenu setColorTag={setColorTag} />
+              <ColorTagMenu
+                setColorTag={props.setColorTag}
+                colorTag={props.colorTag}
+              />
               <Text style={styles.tagsText}>Type:</Text>
-              <TypeTagMenu setTypeTag={setTypeTag} />
+              <TypeTagMenu
+                setTypeTag={props.setTypeTag}
+                typeTag={props.typeTag}
+              />
             </View>
           </View>
           <View style={styles.buttonsContainer}>
@@ -55,7 +61,7 @@ const SavePhotoMenu = (props) => {
               </View>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={props.onSave.bind(this, colorTag, typeTag)}
+              onPress={props.onSave.bind(this, props.colorTag, props.typeTag)}
               style={styles.saveButton}
               accessible={true}
               accessibilityLabel={'Save button'}>

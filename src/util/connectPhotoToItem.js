@@ -13,15 +13,13 @@ const connectPhotoToItem = async (clothingItem) => {
     photo = await FileSystem.readAsStringAsync(fileUri, {
       encoding: FileSystem.EncodingType.Base64,
     });
-  } catch (e) {
-    console.warn(e);
-  }
+  } catch (e) {}
   const newClothingItem = {
+    key: clothingItem.key,
+    date: clothingItem.date,
     colorTag: clothingItem.colorTag,
     typeTag: clothingItem.typeTag,
-    key: clothingItem.key,
     photo: photo,
-    date: clothingItem.date,
   };
   return newClothingItem;
 };

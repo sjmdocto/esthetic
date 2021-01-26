@@ -7,9 +7,10 @@ import getSavedCloset from './src/util/getSavedCloset';
 import ClosetContext from './src/util/ClosetContext';
 import LoadingScreen from './src/screens/Loading/LoadingScreen';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+// import clearAppData from './src/util/clearAppData';
 
 const Stack = createStackNavigator();
-
+// clearAppData();
 const App = () => {
   const [closet, setCloset] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

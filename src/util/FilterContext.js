@@ -1,9 +1,11 @@
+import colorKey from './colorKey';
+import typeKey from './typeKey';
 import {createContext} from 'react';
 
 const FilterContext = createContext({
-  filterColor: 0,
+  filterColor: colorKey.none,
   setFilterColor: () => {},
-  filterType: 0,
+  filterType: typeKey.none,
   setFilterType: () => {},
 });
 
