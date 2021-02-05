@@ -5,7 +5,9 @@
 A virtual closet application for Android and iOS.
 
 Created by Steven Docto and Johnson Lin.
+
 Software Developer: Steven Docto
+
 Product Manager/ML Developer: Johnson Lin
 
 Features:
@@ -17,8 +19,8 @@ Features:
 
 ### Prerequisites
 
-* React 16.13.1
-* React Native 0.63.2
+* React: 16.13.1
+* React Native: 0.63.2
 
 ### Dependencies
 * @react-native-async-storage/async-storage": "^1.13.2"
@@ -26,7 +28,7 @@ Features:
 * @react-navigation/native": "^5.7.5"
 * @react-navigation/stack": "^5.9.3"
 * expo-image-picker": "^9.1.1"
-* "react-native-camera": "git+https://git@github.com/react-native-community/react-native-camera.git"
+* "react-native-camera": "^3.36.0"
 * "react-native-device-info": "^5.6.3"
 * "react-native-gesture-handler": "^1.8.0"
 * "react-native-get-random-values": "^1.4.0"
@@ -43,5 +45,7 @@ Features:
 ```
 $ git clone git@github.com:sjmdocto/esthetic.git
 $ cd esthetic
-$ yarn run android // OR yarn run ios
+$ cd ios && pod install
+$ cd ..
+$ yarn run ios // OR yarn run android
 ```
