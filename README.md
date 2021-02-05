@@ -4,14 +4,14 @@
 
 A virtual closet application for Android and iOS.
 
-Software Development by Steven Docto.
-
-Product Management/ML Development by Johnson Lin.
-
 Features:
 * Upload photos of your clothing from your photo gallery, or take pictures directly within the app.
 * Add color and clothing type tags to your uploaded clothing items. (Auto-tagging feature currently under development.)
 * View your entire wardrobe, and filter through it by color or clothing type.
+
+Software Development by Steven Docto.
+
+Product Management/ML Development by Johnson Lin.
 
 ## Local Development
 
