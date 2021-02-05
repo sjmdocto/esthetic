@@ -4,11 +4,9 @@
 
 A virtual closet application for Android and iOS.
 
-Created by Steven Docto and Johnson Lin.
+Software Development by Steven Docto.
 
-Software Developer: Steven Docto
-
-Product Manager/ML Developer: Johnson Lin
+Product Management/ML Development by Johnson Lin.
 
 Features:
 * Upload photos of your clothing from your photo gallery, or take pictures directly within the app.
